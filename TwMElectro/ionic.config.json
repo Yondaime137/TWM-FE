@@ -1,0 +1,7 @@
+{
+  "name": "TwMElectro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

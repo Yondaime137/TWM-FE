@@ -12,9 +12,19 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="produktInput">
+    <label>Image
+      <input type="text" id="imgURL" class="form-control" placeholder="Image URL">
+    </label>
+    <label>Name
+      <input type="text" id="productName" placeholder="Product Name">
+    </label>
+    <button (click)="addProdukt()" type="submit">Add Produkts</button>
+  </div>
+  <div class="content" id="container">
+    <div *ngFor="let i of _produkty" class="product">
+      <img class="centralImage" src="{{i[0]}}">
+      <p>{{i[1]}}</p>
+    </div>
   </div>
 </ion-content>

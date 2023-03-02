@@ -86,5 +86,8 @@
     "selenium-webdriver": "2.53.1",
     "temp": "0.8.3",
     "wait-on": "1.5.2"
+  },
+  "dependencies": {
+    "mobile-angular-ui": "^1.3.4"
   }
 }

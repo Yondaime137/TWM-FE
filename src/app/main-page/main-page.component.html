@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main-page.component.css" type="text/css">
+  <title>Main Page</title>
+</head>
+<body>
+  <div id="Categories">
+    <h1>Select Category</h1>
+    <ul id="categoryList">
+      <a href=""><li>PSU</li></a>
+      <a href=""><li>NIC</li></a>
+      <a href=""><li>Graphics</li></a>
+      <a href=""><li>Processors</li></a>
+      <a href=""><li>Motherboards</li></a>
+      <a href=""><li>Cooling</li></a>
+      <a href=""><li>RAM</li></a>
+    </ul>
+  </div>
+  <div id="NavBar">
+    <img id="CategorySelectIcon" src="../images/BurgerMenuIcon.png" alt="Burger Icon">
+    <h2>TWMElectronics</h2>
+    <img src="../images/TWM+white.jpg" alt="logo">
+    <img id="shoppingCartIcon" src="../images/ShoppingCartIcon.png" alt="ShoppingCart">
+  </div>
+
+  <div id="productTab">
+    <div *ngFor="let product of products" id="product">
+      <img src="" alt="Image of {{product}}">
+      <p>{{product}}</p>
+    </div>
+  </div>
+</body>
+</html>

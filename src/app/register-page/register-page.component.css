@@ -1,0 +1,21 @@
+#NavBar{
+  top: 0;
+  border: solid;
+  background-color: grey;
+  float: top;
+  flex-wrap: wrap;
+  margin: auto;
+  text-align: center;
+}
+
+#NavBar #shoppingCartIcon{
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+#NavBar #CategorySelectIcon{
+  position: absolute;
+  left: 30px;
+  top: 0;
+}

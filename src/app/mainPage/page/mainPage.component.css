@@ -1,3 +1,10 @@
+/*
+Generate Color Scheme
+#000022 - back
+#001242 - supper
+#00AAFF - front
+ */
+
 .cart{
   transition-duration: 0.125s;
   width: 25%;
@@ -29,5 +36,17 @@
 }
 
 .fa-shopping-cart{
-  color: black;
+  color: black  ;
+}
+.content{
+  position: fixed;
+  width: 100%;
+  display: table-cell;
+  z-index: -10;
+}
+
+.product{
+  margin: auto;
+  padding: 15px;
+  width: 80%;
 }

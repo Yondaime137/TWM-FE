@@ -1,7 +1,31 @@
-.top{
+/*
+Generate Color Scheme
+#000022 - back
+#001242 - supper
+#00AAFF - front
+ */
+
+.navabar{
+  width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
   padding: 10px;
   background-color: #00AAFF;
+  align-content: center;
+  top: 0;
+  z-index: 1000;
+}
+
+.burgerIcon{
+  float: left;
+  z-index: 1001 ;
+}
+
+.footer {
+  background-color: #00AAFF;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
 }

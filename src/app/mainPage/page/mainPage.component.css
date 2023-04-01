@@ -1,0 +1,33 @@
+.cart{
+  transition-duration: 0.125s;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+}
+
+.categories{
+  transition-duration: 0.125s;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+
+.categoriestranslation{
+  transform: translateX(-100%);
+}
+
+.carttranslation{
+  transform: translateX(100%);
+}
+
+.mid{
+  color: black;
+  position: fixed;
+  right: 50%;
+}
+
+.fa-shopping-cart{
+  color: black;
+}

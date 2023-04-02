@@ -1,10 +1,10 @@
 <app-cart class="cart carttranslation"></app-cart>
 <app-categories class="categories categoriestranslation"></app-categories>
 <div class="content">
-  <div *ngFor="let product of products" class="product">
-    <img src="" alt="Obrazok {{product.id }}">
-    <h3>{{product.name}}</h3>
-    <p>{{product.description}}</p>
-    <p>{{product.price}}</p>
+  <div *ngFor="let product of products" class="productsTab">
+    <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
+    <h3 class="product">{{product.name}}</h3>
+    <p class="product">{{product.description}}</p>
+    <p class="product">{{product.price}}€</p>
   </div>
 </div>

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-
+  zasun(){
+    document.getElementsByClassName("cart")[0].classList.toggle("carttranslation");
+    document.getElementsByClassName("cartIcon")[0].classList.toggle("invisible");
+  }
 }

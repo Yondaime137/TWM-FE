@@ -13,4 +13,9 @@ export class CategoriesComponent {
       categories[i].classList.toggle("visible");
     }
   }
+
+  zasun(){
+    document.getElementsByClassName("categories")[0].classList.toggle("categoriestranslation");
+    document.getElementsByClassName("burgerIcon")[0].classList.toggle("invisible");
+  }
 }

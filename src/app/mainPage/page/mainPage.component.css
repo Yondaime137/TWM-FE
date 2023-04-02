@@ -11,6 +11,7 @@ Generate Color Scheme
   height: 100%;
   position: fixed;
   right: 0;
+  border-left: 2px solid #00AAFF;
 }
 
 .categories{
@@ -19,6 +20,7 @@ Generate Color Scheme
   height: 100%;
   position: fixed;
   left: 0;
+  border-right: 2px solid #00AAFF;
 }
 
 .categoriestranslation{
@@ -40,29 +42,20 @@ Generate Color Scheme
 }
 
 .content{
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  display: table;
   z-index: -10;
-  background-color: white;
-  justify-content: center;
 }
 
 .productsTab{
-  display: table;
-  background-color: red;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #001242;
   padding: 15px;
-  width: 80%;
-  margin: auto;
-  border: 3px solid;
+  width: 45%;
+  height: 200px;
+  border: 3px solid #00AAFF;
 }
 
 .productImage{
   background-color: white;
   height: 70px;
-}
-
-.product{
-  display: table-cell;
 }

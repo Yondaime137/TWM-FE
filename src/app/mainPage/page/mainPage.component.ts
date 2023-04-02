@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {vysun} from "../../app.component";
 import {Product} from "../../common/models/Product.model";
 
 
@@ -35,6 +34,62 @@ export class MainPageComponent {
       price: 45.50,
       description: "Toto je Ram"
     },
+    {
+      id: "1",
+      name: "Hardisk",
+      type: "hardisk",
+      count: 10,
+      price: 80.50,
+      description: "Toto je Harddisk 2"
+    },
+    {
+      id: "1",
+      name: "Hardisk",
+      type: "hardisk",
+      count: 10,
+      price: 80.50,
+      description: "Toto je Harddisk 2"
+    },
+    {
+      id: "0",
+      name: "Harddisk",
+      type: "hardisk",
+      count: 12,
+      price: 70.20,
+      description: "Toto je Harddisk"
+    },
+    {
+      id: "1",
+      name: "Hardisk",
+      type: "hardisk",
+      count: 10,
+      price: 80.50,
+      description: "Toto je Harddisk 2"
+    },
+    {
+      id: "2",
+      name: "Ram",
+      type: "ram",
+      count: 15,
+      price: 45.50,
+      description: "Toto je Ram"
+    },
+    {
+      id: "1",
+      name: "Hardisk",
+      type: "hardisk",
+      count: 10,
+      price: 80.50,
+      description: "Toto je Harddisk 2"
+    },
+    {
+      id: "1",
+      name: "Hardisk",
+      type: "hardisk",
+      count: 10,
+      price: 80.50,
+      description: "Toto je Harddisk 2"
+    }
   ]
 
 
@@ -48,9 +103,5 @@ export class MainPageComponent {
       description: "Toto je Harddisk"
     }
     this.products.push(hardDisk);
-  }
-
-  vysunSa(){
-    vysun()
   }
 }

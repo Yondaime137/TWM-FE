@@ -1,6 +1,6 @@
 <app-cart class="cart carttranslation"></app-cart>
 <app-categories class="categories categoriestranslation"></app-categories>
-<div class="content">
+<div class="content col-8 offset-2 d-flex p-2 flex-wrap">
   <div *ngFor="let product of products" class="productsTab">
     <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
     <h3 class="product">{{product.name}}</h3>

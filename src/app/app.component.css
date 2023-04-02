@@ -16,10 +16,28 @@ Generate Color Scheme
   top: 0;
   z-index: 1000;
 }
+.center{
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.invisible{
+  display:none;
+}
 
 .burgerIcon{
+  padding: 0 10px;
   float: left;
   z-index: 1001 ;
+  transform: translateY(5px);
+}
+
+.cartIcon{
+  padding: 0 20px;
+  float: right;
+  z-index: 1001 ;
+  transform: translateY(-30px);
 }
 
 .footer {

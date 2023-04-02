@@ -6,7 +6,8 @@ import {RouterOutlet} from "@angular/router";
 import { MainPageComponent } from './mainPage/page/mainPage.component';
 import { CategoriesComponent } from './mainPage/categories/categories.component';
 import { CartComponent } from './mainPage/cart/cart.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     MainPageComponent,
     CategoriesComponent,
     CartComponent,
-    RegisterPageComponent
+    LoginComponent,
+    RegisterComponent
   ],
     imports: [
         AppRoutingModule,

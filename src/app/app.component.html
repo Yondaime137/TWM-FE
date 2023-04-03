@@ -5,7 +5,13 @@
   <i (click)="vysunSa('cart')" class="cartIcon fa fa-shopping-cart"></i>
   <i (click)="vysunSa('cart')" class="cartIcon fa fa fa-times invisible"></i>
 </div>
-<router-outlet></router-outlet>
+
+<div *ngIf="this.router.url == '/';
+  then thenBlock
+  else elseBlock">
+</div>
+<ng-template #thenBlock> <router-outlet></router-outlet> </ng-template>
+<ng-template #elseBlock> <router-outlet (activate)="hideIcons()"></router-outlet> </ng-template>
 <div class="footer">
   <i class="fa fa-instagram"></i>
   <i class="fa fa-facebook-f"></i>

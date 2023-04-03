@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TWM Electronics';
+  router;
+  constructor(router: Router) {
+    this.router = router
+  }
+
+  hideIcons(){
+    document.getElementById('cartIcon')!.style.display = "none";
+    document.getElementById('burgerIcon')!.style.display = "none";
+  }
+
 
   vysunSa(x:String){
     if (x == 'cart') {

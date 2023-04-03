@@ -26,12 +26,6 @@ i{
   height:100%
 }
 
-.alignRight{
-  border: none;
-  background: none;
-  float: right;
-}
-
 .psucat, .cpucat, .motcat, .disccat{
   cursor: pointer;
   display: none;

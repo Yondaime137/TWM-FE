@@ -22,6 +22,10 @@ Generate Color Scheme
   margin: 0 auto;
 }
 
+.invisible{
+  display:none;
+}
+
 .burgerIcon{
   padding: 0 10px;
   float: left;

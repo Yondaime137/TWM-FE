@@ -1,7 +1,9 @@
 <div class="navabar">
-  <i (click)="vysunSa('categories')" id="burgerIcon" class="burgerIcon fa fa-bars"></i>
+  <i (click)="vysunSa('categories')" class="burgerIcon fa fa-bars"></i>
+  <i (click)="vysunSa('categories')" class="burgerIcon fa fa fa-times invisible"></i>
   <div class="center">TWM Electronics</div>
-  <i (click)="vysunSa('cart')" id="cartIcon" class="cartIcon fa fa-shopping-cart"></i>
+  <i (click)="vysunSa('cart')" class="cartIcon fa fa-shopping-cart"></i>
+  <i (click)="vysunSa('cart')" class="cartIcon fa fa fa-times invisible"></i>
 </div>
 
 <div *ngIf="this.router.url == '/';

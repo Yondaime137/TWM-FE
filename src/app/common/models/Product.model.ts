@@ -5,4 +5,5 @@ export interface Product{
   count: number;
   price: number;
   description: string;
+  img: string;
 }

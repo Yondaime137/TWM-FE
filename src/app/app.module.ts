@@ -10,6 +10,7 @@ import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./login/login.component";
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { DetailComponent } from './detail/detail.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DetailComponent } from './detail/detail.component';
     DetailComponent
   ],
     imports: [
+        HttpClientModule,
         AppRoutingModule,
         BrowserModule,
         RouterOutlet

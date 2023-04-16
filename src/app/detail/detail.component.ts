@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {Product} from "../common/models/Product.model";
 
@@ -9,15 +9,19 @@ import {Product} from "../common/models/Product.model";
 })
 export class DetailComponent {
 
-  product: Product =
-    {
-      id: "0",
-      name: "Harddisk",
-      type: "hardisk",
-      count: 12,
-      price: 70.20,
-      description: "Toto je Harddisk"
-    }
+  @Input("Products")
+  products: Array<Product> = [];
+
+  product: Product = {
+    id: "0",
+    name: "Harddisk",
+    type: "hardisk",
+    count: 12,
+    price: 70.20,
+    description: "Toto je Harddisk",
+    img: "..//"
+  }
+
   router;
   constructor(router: Router) {
     this.router = router

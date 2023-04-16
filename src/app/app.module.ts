@@ -6,6 +6,10 @@ import {RouterOutlet} from "@angular/router";
 import { MainPageComponent } from './mainPage/page/mainPage.component';
 import { CategoriesComponent } from './mainPage/categories/categories.component';
 import { CartComponent } from './mainPage/cart/cart.component';
+import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./login/login.component";
+import { CheckoutComponent } from './checkout/checkout/checkout.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +17,10 @@ import { CartComponent } from './mainPage/cart/cart.component';
     MainPageComponent,
     CategoriesComponent,
     CartComponent,
+    LoginComponent,
+    RegisterComponent,
+    CheckoutComponent,
+    DetailComponent
   ],
     imports: [
         AppRoutingModule,

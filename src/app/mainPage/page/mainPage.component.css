@@ -46,6 +46,7 @@ Generate Color Scheme
 }
 
 .productsTab{
+  cursor: pointer;
   border-radius: 5px;
   margin: 10px;
   background-color: #001242;
@@ -57,5 +58,5 @@ Generate Color Scheme
 
 .productImage{
   background-color: white;
-  height: 70px;
+  max-width: 100%;
 }

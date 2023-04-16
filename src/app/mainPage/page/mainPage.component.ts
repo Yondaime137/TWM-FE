@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Product} from "../../common/models/Product.model";
 
 
@@ -8,7 +8,6 @@ import {Product} from "../../common/models/Product.model";
   styleUrls: ['./mainPage.component.css']
 })
 export class MainPageComponent {
-
   products: Array<Product> = [
     {
       id: "0",
@@ -103,5 +102,9 @@ export class MainPageComponent {
       description: "Toto je Harddisk"
     }
     this.products.push(hardDisk);
+  }
+
+  detail(x: any){
+    alert(x)
   }
 }

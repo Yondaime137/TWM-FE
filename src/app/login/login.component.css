@@ -1,0 +1,54 @@
+/*
+Generate Color Scheme
+#000022 - back
+#001242 - supper
+#00AAFF - front
+ */
+
+.nadpis{
+  font-family: "Georgia", serif;
+  text-align: center;
+  padding: 10px;
+}
+
+.loginDiv{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.loginForm{
+  width: 80%;
+  margin: 15px;
+  display: grid;
+  justify-content: center;
+}
+
+.loginForm input{
+  font-size: 120%;
+  border: solid 2px #00AAFF;
+  background-color: #001242;
+  text-align: center;
+  border-radius: 10px;
+  display: inline-grid;
+  width: 100%;
+}
+
+.loginForm label{
+  font-size: 20px;
+  display: inline-grid;
+}
+
+.formButton{
+  display: inline;
+  background-color: #001242;
+  margin: 5px;
+  border: solid 2px #00AAFF;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+.formButton:hover{
+  background-color: #00AAFF;
+}
+

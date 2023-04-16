@@ -1,13 +1,19 @@
 <div class="navabar">
-  <i (click)="vysunSa('categories')" class="burgerIcon fa fa-bars"></i>
-  <i (click)="vysunSa('categories')" class="burgerIcon fa fa fa-times invisible"></i>
-  <div class="center">TWM Electronics</div>
-  <i (click)="vysunSa('cart')" class="cartIcon fa fa-shopping-cart"></i>
-  <i (click)="vysunSa('cart')" class="cartIcon fa fa fa-times invisible"></i>
+  <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa-bars"></i>
+  <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa fa-times invisible"></i>
+  <div routerLink="/" class="pointer center">TWM Electronics</div>
+  <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa-shopping-cart"></i>
+  <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa fa-times invisible"></i>
 </div>
-<router-outlet></router-outlet>
+
+<div *ngIf="this.router.url == '/';
+  then thenBlock
+  else elseBlock">
+</div>
+<ng-template #thenBlock> <router-outlet (activate)="showIcons()"></router-outlet> </ng-template>
+<ng-template #elseBlock> <router-outlet (activate)="hideIcons()"></router-outlet> </ng-template>
 <div class="footer">
-  <i class="fa fa-instagram"></i>
-  <i class="fa fa-facebook-f"></i>
-  <i class="fa fa-github"></i>
+  <i class="ftricon fa fa-lg fa-instagram"></i>
+  <i class="ftricon fa fa-lg fa-facebook-f"></i>
+  <i class="ftricon fa fa-lg fa-github"></i>
 </div>

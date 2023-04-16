@@ -1,0 +1,18 @@
+<div class="offset-1 col-10 overlay">
+  <div class="row">
+    <div class="col-4">
+      <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
+    </div>
+    <div class="col-8">
+      <h3 class="product">{{product.name}}</h3>
+      <p class="product">{{product.description}} <span *ngIf="product.description.length > 57">. . .</span></p>
+      <p class="product">{{product.price.toFixed(2)}} €</p>
+    </div>
+  </div>
+  <div class="properties">
+    <div>{{product.description}}</div>
+    <div>{{product.description}}</div>
+    <div>{{product.description}}</div>
+    <div>{{product.description}}</div>
+  </div>
+</div>

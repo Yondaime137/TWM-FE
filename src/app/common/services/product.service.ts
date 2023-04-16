@@ -7,15 +7,17 @@ import {Product} from "../models/Product.model";
   providedIn: 'root'
 })
 export class ProductService {
-  private url =
-    'http://labs.fpv.umb.sk:8081/api/product';
+  private url = 'http://localhost:8080/products';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
   }
-  getProduct(productId: number): Observable<Product> {
+  getProduct(productId: String): Observable<Product> {
     return this.http.get<Product>(`${this.url}/${productId}`);
+  }
+  getProductByType(productType: String): Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.url}/type:${productType}`)
   }
   createProduct(product: Product): Observable<number> {
     return this.http.post<number>(this.url, product);

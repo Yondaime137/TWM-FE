@@ -8,11 +8,11 @@ import {User} from "../models/User.model";
 })
 export class UserService {
   private url =
-    'http://labs.fpv.umb.sk:8081/api/user';
+    'http://localhost:8080/users';
   constructor(private http: HttpClient) { }
 
   getUser(userEmail: String): Observable<User> {
-    return this.http.get<User>(`${this.url}/${userEmail}`);
+    return this.http.get<User>(`${this.url}/email:${userEmail}`);
   }
   createUser(user: User): Observable<number> {
     return this.http.post<number>(this.url, user);

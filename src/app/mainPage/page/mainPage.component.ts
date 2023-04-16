@@ -1,6 +1,7 @@
 import {Component, Output} from '@angular/core';
 import {Product} from "../../common/models/Product.model";
-import {HttpClient} from "@angular/common/http";
+import {ProductService} from "../../common/services/product.service";
+
 
 
 @Component({
@@ -10,17 +11,13 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MainPageComponent {
 
-  constructor(private http: HttpClient) {
-    this.getProducts();
+  constructor( private service: ProductService) {
+    service.getProducts();
   }
+
   @Output("Products")
   products: Array<Product> = [];
 
-  getProducts(): void {
-    this.http.get<Product[]>('http://localhost:8080/products').subscribe((products: Product[]) => {
-      this.products = products;
-    });
-  }
 
   detail(x: any){
     alert(x)

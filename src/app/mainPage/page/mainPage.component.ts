@@ -3,7 +3,6 @@ import {Product} from "../../common/models/Product.model";
 import {ProductService} from "../../common/services/product.service";
 
 
-
 @Component({
   selector: 'app-page',
   templateUrl: './mainPage.component.html',
@@ -11,11 +10,20 @@ import {ProductService} from "../../common/services/product.service";
 })
 export class MainPageComponent {
 
-  constructor( private service: ProductService) {
-    service.getProducts();
+  constructor( private service: ProductService) {}
+
+  ngOnInit():void{
+    this.GetProducts();
   }
 
-  @Output("Products")
+
+
+  GetProducts(){
+    this.service.getProducts().subscribe((products: Array<Product>) => {
+      this.products = products;
+    });
+  }
+
   products: Array<Product> = [];
 
 

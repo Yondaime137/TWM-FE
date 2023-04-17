@@ -12,6 +12,9 @@ export class LoginComponent {
   person?: User;
   loginForm: any = FormGroup
   constructor( private service: UserService) {
+    this.service.getUsers().subscribe((users: Array<User>) => {
+      this.users = users;
+    });
 
     this.loginForm = new FormGroup({
       id: new FormControl(null),
@@ -27,18 +30,10 @@ export class LoginComponent {
     })
   }
 
-  checkUser(email: String){
-    this.service.getUser(email).subscribe((person: User) => {
-      this.person = person;
-      if(this.person.email == this.loginForm.email && this.person.password == this.loginForm.password){
-        console.log("Login successfull")
-        //todo login successfull
-      }else {
-        console.log("Login unsuccessfull")
-      }
-      console.log(person)
-    })
+  users?: Array<User> = [];
+
+  checkUser(): boolean{
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
+    return false;
   }
-
-
 }

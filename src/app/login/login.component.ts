@@ -9,7 +9,6 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  person?: User;
   loginForm: any = FormGroup
   constructor( private service: UserService) {
     this.service.getUsers().subscribe((users: Array<User>) => {

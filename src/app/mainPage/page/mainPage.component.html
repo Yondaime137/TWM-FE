@@ -1,14 +1,17 @@
 <app-cart class="cart carttranslation"></app-cart>
 <app-categories class="categories categoriestranslation"></app-categories>
 <div class="content col-8 offset-2 d-flex p-2 flex-wrap justify-content-center">
-  <div *ngFor="let product of products" routerLink="/detail/{{product.id}}" class="productsTab row">
-    <div class="col-4">
-      <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
+  <div *ngFor="let product of products" class="productsTab">
+    <div class="row" routerLink="/detail/{{product.id}}">
+      <div class="col-4">
+        <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
+      </div>
+      <div class="col-8">
+        <h3 class="product">{{product.name}}</h3>
+        <p class="product">{{product.description.substring(0,57)}} <span *ngIf="product.description.length > 57">. . .</span></p>
+        <p class="product">{{product.price.toFixed(2)}} €</p>
+      </div>
     </div>
-    <div class="col-8">
-      <h3 class="product">{{product.name}}</h3>
-      <p class="product">{{product.description.substring(0,57)}} <span *ngIf="product.description.length > 57">. . .</span></p>
-      <p class="product">{{product.price.toFixed(2)}} €</p>
-    </div>
+    <button style="color:black; width: 100%" (click)="addProductToCart(product);">Add to cart</button>
   </div>
 </div><br>

@@ -27,6 +27,10 @@ export class AppComponent {
     document.getElementsByClassName('burgerIcon')[1].classList.add("invisible");
   }
 
+  refresh(){
+    window.location.replace("/")
+  }
+
   vysunSa(x:String){
     if (x == 'cart') {
       document.getElementsByClassName("cart")[0].classList.toggle("carttranslation");

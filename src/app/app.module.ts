@@ -11,6 +11,7 @@ import {LoginComponent} from "./login/login.component";
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { DetailComponent } from './detail/detail.component';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import {HttpClientModule} from "@angular/common/http";
     CheckoutComponent,
     DetailComponent
   ],
-    imports: [
-        HttpClientModule,
-        AppRoutingModule,
-        BrowserModule,
-        RouterOutlet
-    ],
+  imports: [
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserModule,
+    RouterOutlet,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

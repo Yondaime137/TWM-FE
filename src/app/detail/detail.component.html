@@ -5,14 +5,14 @@
     </div>
     <div class="col-8">
       <h3 class="product">{{product.name}}</h3>
-      <p class="product">{{product.description}} <span *ngIf="product.description.length > 57">. . .</span></p>
+      <p class="product">{{product.description}}</p>
       <p class="product">{{product.price.toFixed(2)}} €</p>
     </div>
   </div>
   <div class="properties">
-    <div>{{product.description}}</div>
-    <div>{{product.description}}</div>
-    <div>{{product.description}}</div>
-    <div>{{product.description}}</div>
+    <h3>Product properties:</h3>
+    <div *ngFor="let entry of parametres" class="productsTab">
+      <div>{{entry}}</div>
+    </div>
   </div>
 </div>

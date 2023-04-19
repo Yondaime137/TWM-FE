@@ -12,7 +12,18 @@ export class CartComponent {
   @Input("Products")
   products: Array<Product>=[]
 
+  @Input()
+  set personData(products: Product[] | undefined) {
+    if(products){
+      this.products = products;
+    }
+  }
+
   constructor() {
+    this.priceCount();
+  }
+
+  priceCount(){
     for(let i = 0; i < this.products.length;i++){
       this.totalPrice += this.products[i].price;
     }

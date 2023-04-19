@@ -30,9 +30,17 @@ export class LoginComponent {
   }
 
   users?: Array<User> = [];
+  user?: User;
 
-  checkUser(): boolean{
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-    return false;
+  checkUser(){
+    console.log(this.loginForm.controls.email.value);
+    this.service.getUser(this.loginForm.controls.email.value).subscribe((user: User)=>{
+      this.user = user
+    })
+    if(this.user != undefined && this.user.password == this.loginForm.controls.password.value){
+      console.log("Úspešne prihlásený")
+    }else{
+      console.log("Tak ty si mi kokot")
+    }
   }
 }

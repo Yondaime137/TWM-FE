@@ -1,0 +1,23 @@
+<div class="productDiv">
+  <form class="productForm" [formGroup]="motherboardForm" (submit)="addProduct();">
+    <label for="socket">Socket type</label>
+    <input type="text" formControlName="socket" id="socket" placeholder="socket">
+    <label for="ports">Ports</label>
+    <input type="text" formControlName="ports" id="ports" placeholder="ports">
+    <div class="modular">Backlight</div>
+    <div class="flex">
+  <span>
+    <input  type="radio" id="yes" formControlName="backlight" name="backlight" value="yes" checked>
+    <label for="yes">Yes</label>
+  </span>
+      <span>
+    <input type="radio" id="no" formControlName="backlight" name="backlight" value="no">
+    <label for="no">No</label>
+  </span>
+    </div>
+
+    <button class="formButton" type="submit">Add product to the listing</button>
+    <button class="formButton" type="reset">Clear</button>
+  </form>
+</div>
+

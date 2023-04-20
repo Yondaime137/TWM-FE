@@ -23,3 +23,12 @@ Generate Color Scheme
   margin-top: 20px;
   border-top: 2px solid #00AAFF;
 }
+
+button{
+  display: inline;
+  background-color: #001242;
+  margin: 5px;
+  border: solid 2px #00AAFF;
+  border-radius: 3px;
+  transition: 0.4s;
+}

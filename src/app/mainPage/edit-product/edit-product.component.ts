@@ -1,32 +1,30 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import {FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
-import {Product} from "../common/models/Product.model";
-import {ProductService} from "../common/services/product.service";
+import {ProductService} from "../../common/services/product.service";
+import {Product} from "../../common/models/Product.model";
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class DetailComponent {
-
+export class EditProductComponent {
   router;
+  productForm: any = FormGroup;
+  product?: Product;
+  parametres?: Array<String>
   constructor(router: Router,private service: ProductService) {
     this.router = router
-  }
-
-  ngOnInit():void{
     const productId = this.router.url.split('/')[2];
     this.service.getProduct(productId).subscribe((product: Product) => {
       this.product = product;
       setTimeout(()=>{
         this.parser();
-        }, 200);
+      }, 200);
     });
   }
 
-  product?: Product;
-  parametres?: Array<String>
   parser(){
     for (let prop in this.product?.parameters){
       console.log(prop)
@@ -37,20 +35,10 @@ export class DetailComponent {
       params.push(param[i].replace(":",": "))
     }
     this.parametres = params
-
-
+    console.log(this.parametres)
   }
 
-  deleteProduct(id:String | undefined){
-    if(id){
-      this.service.deleteProduct(id).subscribe(() => {
-        console.log("Produkt Vymazaný")
-      })
-      setTimeout(()=>{
-        this.router.navigateByUrl("/")
-      }, 200);
-    }
+  addProduct(){
+    console.log("asd")
   }
-
-
 }

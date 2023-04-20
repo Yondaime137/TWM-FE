@@ -1,4 +1,4 @@
-<app-cart [personData]="cartProducts" class="cart carttranslation"></app-cart>
+<app-cart [productList]="cartProducts" class="cart carttranslation"></app-cart>
 <app-categories (searchByType)="getProductByType($event)" class="categories categoriestranslation"></app-categories>
 <div class="content col-8 offset-2 d-flex p-2 flex-wrap justify-content-center">
   <div *ngFor="let product of products" class="productsTab">

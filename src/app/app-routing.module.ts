@@ -5,11 +5,29 @@ import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./login/login.component";
 import {CheckoutComponent} from "./checkout/checkout/checkout.component";
 import {DetailComponent} from "./detail/detail.component";
+import {
+  ProductCreationPageComponent
+} from "./mainPage/product-creation/product-creation-page/product-creation-page.component";
+import {EditProductComponent} from "./mainPage/edit-product/edit-product.component";
 
 const routes: Routes = [
   {
     path: '',
     component: MainPageComponent
+  },
+  {
+    path: 'editproduct',
+    component: EditProductComponent,
+    children:[
+      {
+        path:'**',
+        component: EditProductComponent,
+      }
+    ]
+  },
+  {
+    path: 'addproduct',
+    component: ProductCreationPageComponent
   },
   {
     path: 'register',

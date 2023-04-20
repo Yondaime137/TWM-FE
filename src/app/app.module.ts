@@ -12,7 +12,15 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { DetailComponent } from './detail/detail.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import { GeneralParamsComponent } from './mainPage/product-creation/generalParams/generalParams.component';
+import { PSUComponent } from './mainPage/product-creation/product-specific-params/psu/psu.component';
+import { ProductCreationPageComponent } from './mainPage/product-creation/product-creation-page/product-creation-page.component';
+import { ProductSpecificParamsComponent } from './mainPage/product-creation/product-specific-params/product-specific-params.component';
+import { MotherboardComponent } from './mainPage/product-creation/product-specific-params/motherboard/motherboard.component';
+import { NicComponent } from './mainPage/product-creation/product-specific-params/nic/nic.component';
+import { ProcessorComponent } from './mainPage/product-creation/product-specific-params/processor/processor.component';
+import { DiscComponent } from './mainPage/product-creation/product-specific-params/disc/disc.component';
+import { EditProductComponent } from './mainPage/edit-product/edit-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +30,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     RegisterComponent,
     CheckoutComponent,
-    DetailComponent
+    DetailComponent,
+    GeneralParamsComponent,
+    PSUComponent,
+    ProductCreationPageComponent,
+    ProductSpecificParamsComponent,
+    MotherboardComponent,
+    NicComponent,
+    ProcessorComponent,
+    DiscComponent,
+    EditProductComponent,
   ],
   imports: [
     FormsModule,

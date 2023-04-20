@@ -13,17 +13,18 @@ export class CartComponent {
   products: Array<Product>=[]
 
   @Input()
-  set personData(products: Product[] | undefined) {
+  set productList(products: Product[] | undefined) {
     if(products){
       this.products = products;
     }
   }
 
-  constructor() {
-    this.priceCount();
+  popProductFromCart(product: number){
+    this.products.splice(product, 1);
   }
 
   priceCount(){
+    this.totalPrice = 0.00
     for(let i = 0; i < this.products.length;i++){
       this.totalPrice += this.products[i].price;
     }

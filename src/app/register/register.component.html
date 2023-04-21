@@ -2,27 +2,29 @@
   <div class="nadpis">
   </div>
   <div class="registerDiv">
-    <form class="registerForm" onsubmit="">
+    <form [formGroup]="registerForm" class="registerForm" (submit)="registerUser();">
 
       <label for="username">Username</label>
-      <input type="text" name="username" id="username" placeholder="Username">
-      <label for="firstname">First Name</label>
-      <input type="text" name="first name" id="firstname" placeholder="First Name">
-      <label for="lastname">Last Name</label>
-      <input type="text" name="last name" id="lastname" placeholder="Last Name">
-      <label for="email">E-mail Address</label>
-      <input type="text" name="email" id="email" placeholder="E-mail">
+      <input type="text" formControlName="username" id="username" placeholder="Username">
       <label for="password">Password</label>
-      <input type="text" name="password" id="password" placeholder="Password">
-      <label for="repassword">Repeat Password</label>
-      <input type="text" name="repeat password" id="repassword" placeholder="Re-Password">
+      <input type="text" formControlName="password" id="password" placeholder="Password">
+      <label for="repassword">Repeat password</label>
+      <input type="text" formControlName="repassword" id="repassword" placeholder="Repeat password">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" id="name" placeholder="Name">
+      <label for="surname">Surname</label>
+      <input type="text" formControlName="surname" id="surname" placeholder="Surname">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" id="email" placeholder="Email">
+      <label for="telNumber">Tel. Number</label>
+      <input type="text" formControlName="telNumber" id="telNumber" placeholder="Email">
       <label for="address">Address</label>
-      <input type="text" name="address" id="address" placeholder="Address">
-      <label for="postal">Postal Code</label>
-      <input type="text" name="postal" id="postal" placeholder="Postal Code">
+      <input type="text" formControlName="address" id="address" placeholder="Address">
+      <label for="city">City</label>
+      <input type="text" formControlName="city" id="city" placeholder="City">
 
       <button class="formButton" type="submit">Register</button>
-      <button class="formButton">Clear</button>
+      <button class="formButton" type="reset">Clear</button>
 
     </form>
   </div>

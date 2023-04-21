@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -17,5 +17,16 @@ export class CategoriesComponent {
   zasun(){
     document.getElementsByClassName("categories")[0].classList.toggle("categoriestranslation");
     document.getElementsByClassName("burgerIcon")[0].classList.toggle("invisible");
+  }
+
+  @Output()
+  searchByType = new EventEmitter<String>();
+
+  getProductByType(type?:String):void{
+    if(type == undefined){
+      this.searchByType.emit()
+    }else {
+      this.searchByType.emit(type)
+    }
   }
 }

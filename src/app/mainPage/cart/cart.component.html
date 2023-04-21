@@ -1,8 +1,27 @@
 <div class="box">
-  <div>
+  <div class="top">
     <span>Cart</span>
     <button class="alignRight" (click)="zasun()"><i class="fa fa-times fa-lg"></i></button>
 
   </div>
-
+  <div class="cart">
+  <table *ngIf="products.length">
+    <tr>
+      <th>&nbsp;</th>
+      <th style="; transform: translateX(-20px)">Product</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let product of products; let i = index;">
+      <td>
+        <i (click)="popProductFromCart(i);priceCount();" class="fa fa-minus-circle">&nbsp;</i>
+      </td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price.toFixed(2) }}€</td>
+    </tr>
+  </table>
+  </div>
+  <div class="bot">
+    <span class="price">Total price: {{totalPrice.toFixed(2)}}€</span>
+    <button routerLink="checkout" class="checkout">Proceed to check out</button>
+  </div>
 </div>

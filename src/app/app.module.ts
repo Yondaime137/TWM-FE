@@ -6,27 +6,49 @@ import {RouterOutlet} from "@angular/router";
 import { MainPageComponent } from './mainPage/page/mainPage.component';
 import { CategoriesComponent } from './mainPage/categories/categories.component';
 import { CartComponent } from './mainPage/cart/cart.component';
-
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-
-
+import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./login/login.component";
+import { CheckoutComponent } from './checkout/checkout/checkout.component';
+import { DetailComponent } from './detail/detail.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { GeneralParamsComponent } from './mainPage/product-creation/generalParams/generalParams.component';
+import { PSUComponent } from './mainPage/product-creation/product-specific-params/psu/psu.component';
+import { ProductCreationPageComponent } from './mainPage/product-creation/product-creation-page/product-creation-page.component';
+import { ProductSpecificParamsComponent } from './mainPage/product-creation/product-specific-params/product-specific-params.component';
+import { MotherboardComponent } from './mainPage/product-creation/product-specific-params/motherboard/motherboard.component';
+import { NicComponent } from './mainPage/product-creation/product-specific-params/nic/nic.component';
+import { ProcessorComponent } from './mainPage/product-creation/product-specific-params/processor/processor.component';
+import { DiscComponent } from './mainPage/product-creation/product-specific-params/disc/disc.component';
+import { EditProductComponent } from './mainPage/edit-product/edit-product.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     CategoriesComponent,
     CartComponent,
-
     LoginComponent,
-    RegisterComponent
-
+    RegisterComponent,
+    CheckoutComponent,
+    DetailComponent,
+    GeneralParamsComponent,
+    PSUComponent,
+    ProductCreationPageComponent,
+    ProductSpecificParamsComponent,
+    MotherboardComponent,
+    NicComponent,
+    ProcessorComponent,
+    DiscComponent,
+    EditProductComponent,
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        RouterOutlet
-    ],
+  imports: [
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserModule,
+    RouterOutlet,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

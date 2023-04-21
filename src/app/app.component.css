@@ -1,0 +1,61 @@
+/*
+Generate Color Scheme
+#000022 - back
+#001242 - supper
+#00AAFF - front
+ */
+
+.navabar{
+  position: sticky;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  background-color: #00AAFF;
+  align-content: center;
+  top: 0;
+  z-index: 1000;
+}
+.center{
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pointer{
+  cursor: pointer ;
+}
+
+.invisible{
+  display:none;
+}
+
+.burgerIcon{
+  padding: 0 10px;
+  float: left;
+  z-index: 1001 ;
+  transform: translateY(5px);
+}
+
+.cartIcon{
+  padding: 0 20px;
+  float: right;
+  z-index: 1001 ;
+  transform: translateY(-30px);
+}
+
+.footer {
+  text-align: center;
+  background-color: #00AAFF;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+  padding: 5px;
+}
+
+.ftricon{
+  margin: 5px;
+
+}

@@ -1,0 +1,16 @@
+<div class="productDiv">
+  <form class="productForm" [formGroup]="processorForm" (submit)="addProduct();">
+    <label for="series">Series</label>
+    <input type="text" formControlName="series" id="series" placeholder="Series">
+    <label for="cores">Cores</label>
+    <input type="number" formControlName="cores" id="cores" placeholder="0">
+    <label for="threads">Threads</label>
+    <input type="number" formControlName="threads" id="threads" placeholder="0">
+    <label for="socket">Socket</label>
+    <input type="text" formControlName="socket" id="socket" placeholder="Socket">
+
+    <button class="formButton" type="submit">Add product to the listing</button>
+    <button class="formButton" type="reset">Clear</button>
+  </form>
+</div>
+

@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+Generate Color Scheme
+#000022 - back
+#001242 - supper
+#00AAFF - front
+ */
+
+.invisible{
+  display: none;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+  background-color: #000022;
+  border: 1px solid #001242;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px #00AAFF;
+}
+
+body::-webkit-scrollbar-thumb {
+  box-shadow: inset -4px -3px 10px #000022;
+  border-radius: 5px;
+  background-color: #00AAFF;
+  /*outline: 1px solid #00AAFF;*/
+}
+
+body{
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)),
+  url("assets/images/TechBackgorund.png");
+}
+*{
+  color: white;
+}

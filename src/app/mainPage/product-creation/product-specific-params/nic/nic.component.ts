@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../../../../common/models/Product.model";
 import {ProductService} from "../../../../common/services/product.service";
 import {Router} from "@angular/router";
@@ -25,35 +25,37 @@ export class NicComponent {
   constructor(router: Router,private service: ProductService,private toastService: ToastService) {
     this.router = router
     this.nicForm = new FormGroup({
-      ports: new FormControl(),
-      maxSpeed: new FormControl(),
-      opSys: new FormControl()
+      ports:  new FormControl(null, Validators.required),
+      maxSpeed:  new FormControl(null, Validators.required),
+      opSys:  new FormControl(null, Validators.required)
     })
 
   }
   addProduct(){
-    const params = new Map<string, string>([
-      ["Ports", this.nicForm.controls.ports.value],
-      ["Max speed", this.nicForm.controls.maxSpeed.value],
-      ["Operating system", this.nicForm.controls.opSys.value]
-    ]);
-    this.createdProduct = {
-      name: this.mainparams.name,
-      type: this.mainparams.type,
-      count: this.mainparams.count,
-      price: this.mainparams.price,
-      description: this.mainparams.description,
-      img: this.mainparams.img,
-      parameters: params
+    if (this.nicForm.valid) {
+      const params = new Map<string, string>([
+        ["Ports", this.nicForm.controls.ports.value],
+        ["Max speed", this.nicForm.controls.maxSpeed.value],
+        ["Operating system", this.nicForm.controls.opSys.value]
+      ]);
+      this.createdProduct = {
+        name: this.mainparams.name,
+        type: this.mainparams.type,
+        count: this.mainparams.count,
+        price: this.mainparams.price,
+        description: this.mainparams.description,
+        img: this.mainparams.img,
+        parameters: Object.fromEntries(params)
+      }
+      this.service.createProduct(this.createdProduct).subscribe(product => {
+        console.log('Produkt úspešne uložený');
+        console.log(product)
+      })
+      this.toastService.success('Product created!');
+      setTimeout(() => {
+        this.router.navigateByUrl("/")
+      }, 200);
     }
-    this.service.createProduct(this.createdProduct).subscribe(product => {
-      console.log('Produkt úspešne uložený');
-      console.log(product)
-    })
-    this.toastService.success('Product created!');
-    setTimeout(()=>{
-      this.router.navigateByUrl("/")
-    }, 200);
   }
 
 }

@@ -8,9 +8,22 @@
     <input type="number" formControlName="threads" id="threads" placeholder="0">
     <label for="socket">Socket</label>
     <input type="text" formControlName="socket" id="socket" placeholder="Socket">
+    <div class="modular">Company</div>
+    <div class="flex">
+  <span>
+    <input  type="radio" id="Intel" formControlName="additional" name="additional" value="Intel" [checked]="true">
+    <label for="Intel">Intel</label>
+  </span>
+      <span>
+    <input type="radio" id="AMD" formControlName="additional" name="additional" value="AMD">
+    <label for="AMD">AMD</label>
+  </span>
+    </div>
 
-    <button class="formButton" type="submit">Add product to the listing</button>
-    <button class="formButton" type="reset">Clear</button>
+    <button class="formButton" type="submit" [disabled]="processorForm.invalid">
+      <span *ngIf="processorForm.invalid" class="text-danger">Fill out every section!</span>
+      <span *ngIf="!processorForm.invalid">Add product to the listing!</span>
+    </button>    <button class="formButton" type="reset">Clear</button>
   </form>
 </div>
 

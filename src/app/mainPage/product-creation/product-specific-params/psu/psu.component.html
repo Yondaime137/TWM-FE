@@ -7,7 +7,7 @@
   <div class="modular">Modular</div>
   <div class="flex">
   <span>
-    <input  type="radio" id="yes" formControlName="modular" name="modular" value="yes" checked>
+    <input  type="radio" id="yes" formControlName="modular" name="modular" value="yes" [checked]="true">
     <label for="yes">Yes</label>
   </span>
   <span>
@@ -18,7 +18,10 @@
   <label for="pinNumber">Number of Pins</label>
   <input type="number" formControlName="pinNumber" id="pinNumber" placeholder="0">
 
-  <button class="formButton" type="submit">Add product to the listing</button>
+  <button class="formButton" type="submit" [disabled]="psuForm.invalid">
+    <span *ngIf="psuForm.invalid" class="text-danger">Fill out every section!</span>
+    <span *ngIf="!psuForm.invalid">Add product to the listing!</span>
+  </button>
   <button class="formButton" type="reset">Clear</button>
 </form>
 </div>

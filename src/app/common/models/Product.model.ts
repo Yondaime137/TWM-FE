@@ -6,5 +6,6 @@ export interface Product{
   price: number;
   description: string;
   img: string;
-  parameters: Map<String,String>
+  additional?: string;
+  parameters: Object;
 }

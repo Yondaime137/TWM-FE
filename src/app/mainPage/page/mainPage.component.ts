@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {Product} from "../../common/models/Product.model";
 import {ProductService} from "../../common/services/product.service";
 import {CartService} from "../../common/services/cart.service";
-import {Cart} from "../../common/models/Cart.model";
 
 
 @Component({
@@ -23,19 +22,34 @@ export class MainPageComponent {
   GetProducts(){
     this.service.getProducts().subscribe((products: Array<Product>) => {
       this.products = products;
+      console.log(this.products)
     });
   }
 
+  additional?: String;
+  getProductByAdditional(additional?: String){
+    this.additional = additional
+  }
+
   getProductByType(typ?: String){
+    setTimeout(()=>{
     if(typ == undefined){
       this.service.getProducts().subscribe((products: Array<Product>) => {
         this.products = products;
       });
     }else {
-      this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
-        this.products = products;
-      });
+      console.log(this.additional)
+      if (this.additional == undefined) {
+        this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
+          this.products = products;
+        });
+      } else {
+        this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
+          this.products = products;
+        });
+      }
     }
+    }, 200);
   }
 
 

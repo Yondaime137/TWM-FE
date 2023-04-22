@@ -60,3 +60,52 @@ Generate Color Scheme
   background-color: white;
   max-width: 100%;
 }
+
+.overflow{
+  max-height: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.addToCartButton{
+  display: inline;
+  background-color: #001242;
+  margin: 5px;
+  border: solid 2px #00AAFF;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+.addToCartButton:hover{
+  background-color: #00AAFF;
+}
+
+.overflow::-webkit-scrollbar{
+  visibility: hidden;
+}
+
+
+@media only screen and (max-width: 1480px) {
+  .overflow{
+    max-height: 40px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  .productImage{
+    background-color: white;
+    max-height: 200px;
+  }
+  .productsTab{
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .cart,.categories{
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .cart,.categories{
+    width: 100%;
+  }
+}

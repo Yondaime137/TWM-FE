@@ -17,9 +17,14 @@
     <label for="count">Count</label>
     <input type="number" formControlName="count" id="count" placeholder="0">
     <label for="image">Upload image</label>
-    <input type="file" accept="image/*" formControlName="image" id="image">
+    <input type="url" formControlName="image" id="image">
 
-    <button class="formButton" type="submit">Continue to product specific parameters</button>
+
+
+    <button class="formButton" type="submit" [disabled]="productForm.invalid">
+      <span *ngIf="productForm.invalid" class="text-danger">Fill out every section!</span>
+      <span *ngIf="!productForm.invalid">Continue to product specific form!</span>
+    </button>
     <button class="formButton" type="reset">Clear</button>
   </form>
 </div>

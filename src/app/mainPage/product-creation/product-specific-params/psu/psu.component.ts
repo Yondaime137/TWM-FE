@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../../../../common/models/Product.model";
 import {ProductService} from "../../../../common/services/product.service";
 import {Router} from "@angular/router";
@@ -24,15 +24,16 @@ export class PSUComponent {
   constructor(router: Router,private service: ProductService,private toastService: ToastService) {
     this.router = router
     this.psuForm = new FormGroup({
-        plugNumber: new FormControl(),
-        wattage: new FormControl(),
-        modular: new FormControl(),
-        pinNumber: new FormControl()
+        plugNumber: new FormControl(null, Validators.required),
+        wattage: new FormControl(null, Validators.required),
+        modular: new FormControl(null, Validators.required),
+        pinNumber: new FormControl(null, Validators.required)
     })
 
   }
   addProduct(){
-    const params = new Map<String, String>([
+    if (this.psuForm.valid) {
+    const params = new Map<string, string>([
       ["Number of plugs", this.psuForm.controls.plugNumber.value],
       ["Wattage", this.psuForm.controls.wattage.value],
       ["Modular", this.yesNo()],
@@ -45,7 +46,7 @@ export class PSUComponent {
       price: this.mainparams.price,
       description: this.mainparams.description,
       img: this.mainparams.img,
-      parameters: params
+      parameters: Object.fromEntries(params)
     }
     this.service.createProduct(this.createdProduct).subscribe(product => {
       console.log('Produkt úspešne uložený');
@@ -56,6 +57,7 @@ export class PSUComponent {
     setTimeout(()=>{
       this.router.navigateByUrl("/")
     }, 200);
+    }
   }
   yesNo():String{
     if(this.psuForm.controls.modular.value == true){

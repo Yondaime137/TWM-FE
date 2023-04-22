@@ -7,8 +7,10 @@
     <label for="opSys">Operating system</label>
     <input type="text" formControlName="opSys" id="opSys" placeholder="Operating system">
 
-    <button class="formButton" type="submit">Add product to the listing</button>
-    <button class="formButton" type="reset">Clear</button>
+    <button class="formButton" type="submit" [disabled]="nicForm.invalid">
+      <span *ngIf="nicForm.invalid" class="text-danger">Fill out every section!</span>
+      <span *ngIf="!nicForm.invalid">Add product to the listing!</span>
+    </button>    <button class="formButton" type="reset">Clear</button>
   </form>
 </div>
 

@@ -21,6 +21,10 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.url}/type:${productType}`)
   }
 
+  getProductByAdditional(productType: String, additionalParam: String): Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.url}/type:${productType}/${additionalParam}`)
+  }
+
   createProduct(product: Product): Observable<number> {
     return this.http.post<number>(this.url, product);
   }

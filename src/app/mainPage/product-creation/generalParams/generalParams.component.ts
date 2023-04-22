@@ -1,5 +1,5 @@
 import {Component, EventEmitter,  Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-general-params',
@@ -12,16 +12,18 @@ export class GeneralParamsComponent {
   genParams = new EventEmitter<any>();
   constructor() {
     this.productForm = new FormGroup({
-      type: new FormControl(),
-      name: new FormControl(),
-      price: new FormControl(),
-      description: new FormControl(),
-      count: new FormControl(),
-      image: new FormControl()
+      type: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
+      price: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
+      count: new FormControl(null, Validators.required),
+      image: new FormControl(null, Validators.required)
     })
   }
   addProduct(): void {
-    this.genParams.emit(this.prepareProduct());
+    if (this.productForm.valid) {
+      this.genParams.emit(this.prepareProduct());
+    }
   }
   private prepareProduct(){
     return {
@@ -30,7 +32,7 @@ export class GeneralParamsComponent {
       price: this.productForm.controls.price.value,
       description: this.productForm.controls.description.value,
       count: this.productForm.controls.count.value,
-      image: this.productForm.controls.image.value
+      img: this.productForm.controls.image.value
     };
   }
 

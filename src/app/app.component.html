@@ -1,19 +1,32 @@
 <lib-toastify-toast-container></lib-toastify-toast-container>
 <div class="navabar">
-  <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa-bars"></i>
-  <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa fa-times invisible"></i>
-  <div *ngIf="this.router.url == '/';
+  <div>
+    <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa-bars"></i>
+    <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa fa-times invisible"></i>
+  </div>
+  <div class="center" *ngIf="this.router.url == '/';
   then navRef
   else navRel">
   </div>
-  <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa-shopping-cart"></i>
-  <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa fa-times invisible"></i>
+  <div>
+    <span class="user">
+      <span *ngIf="user != undefined">
+        <span class="pointer" routerLink="/edituser"><i class="fa fa-cog"></i>{{user.username}}</span>
+        <button class="formButton" (click)="logOut()">Log Out</button>
+      </span>
+      <span *ngIf="user == undefined">
+        <button class="formButton" routerLink="/login">Log In</button>
+      </span>
+    </span>
+    <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa-shopping-cart"></i>
+    <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa fa-times invisible"></i>
+  </div>
 </div>
 
-<div *ngIf="this.router.url == '/';
-  then thenBlock
-  else elseBlock">
+<div *ngIf="this.router.url == '/';then thenBlock else elseBlock">
 </div>
+
+
 <div class="footer">
   <i class="ftricon fa fa-lg fa-instagram"></i>
   <i class="ftricon fa fa-lg fa-facebook-f"></i>

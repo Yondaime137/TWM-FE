@@ -12,8 +12,8 @@
           <p class="product overflow">{{product.description.substring(0,57)}} <span *ngIf="product.description.length > 57">. . .</span></p>
           <p class="product">{{product.price.toFixed(2)}} €</p>
         </span>
-        <button class="addToCartButton" (click)="addProductToCart(product);">Add to cart</button>
       </div>
     </div>
+    <button class="addToCartButton" (click)="addProductToCart(product);">Add to cart</button>
   </div>
 </div><br>

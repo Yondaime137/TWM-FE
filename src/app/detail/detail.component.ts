@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {Product} from "../common/models/Product.model";
 import {ProductService} from "../common/services/product.service";
 import {ToastService} from "angular-toastify";
+import {User} from "../common/models/User.model";
 
 @Component({
   selector: 'app-detail',
@@ -10,10 +11,14 @@ import {ToastService} from "angular-toastify";
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent {
-
+  user?:User;
   router;
   constructor(router: Router,private service: ProductService,private toastService: ToastService) {
     this.router = router
+    let user = sessionStorage.getItem("user")
+    if(user) {
+      this.user = JSON.parse(user) as User
+    }
   }
 
   ngOnInit():void{

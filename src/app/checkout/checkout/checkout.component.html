@@ -9,21 +9,31 @@
   </div>
 
   <div class="col-4 offset-4 form">
+    <button class="bttn width" *ngIf="user" (click)="deliver()">Confirm the order</button>
+    <span *ngIf="!user">
     <div class="center"><button class="bttn" routerLink="../login">Log in</button> or fill out following form to proceed!</div>
-    <form>
-      <label for="Name">Name</label>
-        <input id="Name" name="Name">
-      <label for="Surname">Surname</label>
-        <input id="Surname" name="Surname">
-      <label for="Address">Address</label>
-        <input id="Address" name="Address">
-      <label for="City">City</label>
-        <input id="City" name="City">
-      <label for="Email">Email</label>
-        <input id="Email" name="Email">
-      <label for="telNum">Phone number</label>
-        <input id="telNum" name="telNum">
-      <button class="bttn mt-2">Confirm the order</button>
+      <form [formGroup]="checkoutForm" class="editUserForm" (submit)="deliver();">
+
+        <label for="firstName">Name</label>
+      <input type="text" formControlName="firstName" id="firstName" placeholder="First name">
+        <label for="lastName">Surname</label>
+      <input type="text" formControlName="lastName" id="lastName" placeholder="Last name">
+        <label for="address">Address</label>
+      <input type="text" formControlName="address" id="address" placeholder="Street, number">
+        <label for="city">City</label>
+      <input type="text" formControlName="city" id="city" placeholder="City">
+        <label for="email">Email</label>
+      <input type="text" formControlName="email" id="email" placeholder="Email">
+        <label for="number">Number</label>
+      <input type="text" formControlName="number" id="number" placeholder="Number">
+
+      <button class="formButton" type="submit" [disabled]="checkoutForm.invalid">
+        <span *ngIf="checkoutForm.invalid" class="text-danger">Fill out every section!</span>
+        <span *ngIf="!checkoutForm.invalid">Update credentials!</span>
+      </button>
+      <button class="formButton" type="reset">Clear</button>
+
     </form>
+    </span>
   </div>
 </div>

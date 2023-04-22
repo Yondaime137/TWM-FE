@@ -9,6 +9,10 @@ input,label{
   display: block;
 }
 
+.width{
+  width: 100%;
+}
+
 .box{
   font-size: 1.1rem;
 }

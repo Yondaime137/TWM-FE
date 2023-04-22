@@ -7,6 +7,9 @@ Generate Color Scheme
 
 .navabar{
   position: sticky;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
@@ -17,11 +20,11 @@ Generate Color Scheme
   top: 0;
   z-index: 1000;
 }
-.center{
-  text-align: center;
-  width: 50%;
-  margin: 0 auto;
-}
+
+/*.center{*/
+/*  padding-right: 85px;*/
+/*  transform: translateX(30%);*/
+/*}*/
 
 .pointer{
   cursor: pointer ;
@@ -31,18 +34,13 @@ Generate Color Scheme
   display:none;
 }
 
-.burgerIcon{
+.burgerIcon, .cartIcon{
   padding: 0 10px;
-  float: left;
-  z-index: 1001 ;
-  transform: translateY(5px);
 }
 
 .cartIcon{
-  padding: 0 20px;
   float: right;
-  z-index: 1001 ;
-  transform: translateY(-30px);
+  transform: translateY(5px);
 }
 
 .footer {
@@ -57,5 +55,21 @@ Generate Color Scheme
 
 .ftricon{
   margin: 5px;
-
 }
+
+.formButton{
+  font-size: 1rem;
+  color: #00AAFF;
+  background-color: #001242;
+  display: inline;
+  margin: 5px;
+  border: solid 2px #001242;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+.formButton:hover{
+  color: white;
+  background-color: #000022;
+}
+/*#000022 #001242 #00AAFF*/

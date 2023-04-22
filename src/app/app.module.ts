@@ -7,8 +7,8 @@ import {AngularToastifyModule, ToastService} from 'angular-toastify';
 import { MainPageComponent } from './mainPage/page/mainPage.component';
 import { CategoriesComponent } from './mainPage/categories/categories.component';
 import { CartComponent } from './mainPage/cart/cart.component';
-import {RegisterComponent} from "./register/register.component";
-import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./userPage/register/register.component";
+import {LoginComponent} from "./userPage/login/login.component";
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { DetailComponent } from './detail/detail.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -22,6 +22,7 @@ import { NicComponent } from './mainPage/product-creation/product-specific-param
 import { ProcessorComponent } from './mainPage/product-creation/product-specific-params/processor/processor.component';
 import { DiscComponent } from './mainPage/product-creation/product-specific-params/disc/disc.component';
 import { EditProductComponent } from './mainPage/edit-product/edit-product.component';
+import { EditUserComponent } from './userPage/edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { EditProductComponent } from './mainPage/edit-product/edit-product.compo
     ProcessorComponent,
     DiscComponent,
     EditProductComponent,
+    EditUserComponent,
   ],
   imports: [
     FormsModule,

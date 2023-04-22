@@ -22,7 +22,6 @@ export class MainPageComponent {
   GetProducts(){
     this.service.getProducts().subscribe((products: Array<Product>) => {
       this.products = products;
-      console.log(this.products)
     });
   }
 

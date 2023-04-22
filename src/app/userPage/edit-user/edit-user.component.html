@@ -1,0 +1,31 @@
+<div>
+  <div class="nadpis">
+  </div>
+  <div class="editUserDiv">
+    <form [formGroup]="editUserForm" class="editUserForm" (submit)="editUser();">
+
+      <label for="username">Username</label>
+      <input type="text" formControlName="username" id="username" placeholder="Username">
+      <label for="firstName">Name</label>
+      <input type="text" formControlName="firstName" id="firstName" placeholder="Name">
+      <label for="lastName">Surname</label>
+      <input type="text" formControlName="lastName" id="lastName" placeholder="Surname">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" id="email" placeholder="Email">
+      <label for="number">Tel. Number</label>
+      <input type="text" formControlName="number" id="number" placeholder="Email">
+      <label for="address">Address</label>
+      <input type="text" formControlName="address" id="address" placeholder="Address">
+      <label for="city">City</label>
+      <input type="text" formControlName="city" id="city" placeholder="City">
+
+      <button class="formButton" type="submit" [disabled]="editUserForm.invalid">
+        <span *ngIf="editUserForm.invalid" class="text-danger">Fill out every section!</span>
+        <span *ngIf="!editUserForm.invalid">Update credentials!</span>
+      </button>
+      <button class="formButton" type="reset">Clear</button>
+
+    </form>
+    <button class="formButton" (click)="deleteUser()">Delete account</button>
+  </div>
+</div>

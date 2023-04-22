@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="properties">
-    <button routerLink="/editproduct/{{product.id}}">Edit <i class="fa fa-pencil"></i></button>
-    <button (click)="deleteProduct(product.id);">Delete <i class="fa fa-trash"></i></button>
+    <button *ngIf="user && user.admin" routerLink="/editproduct/{{product.id}}">Edit <i class="fa fa-pencil"></i></button>
+    <button *ngIf="user && user.admin" (click)="deleteProduct(product.id);">Delete <i class="fa fa-trash"></i></button>
     <h3>Product properties:</h3>
     <div *ngFor="let entry of parametres" class="productsTab">
       <div>{{entry}}</div>

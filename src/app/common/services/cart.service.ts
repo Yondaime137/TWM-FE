@@ -16,7 +16,6 @@ export class CartService {
   createCart(cart: Cart): Observable<number>{
     return this.http.post<number>(this.url, cart)
   }
-
   /*getCartByUser(user: User): {
 
   }

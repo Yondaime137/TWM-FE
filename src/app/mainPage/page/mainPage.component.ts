@@ -4,7 +4,6 @@ import {ProductService} from "../../common/services/product.service";
 import {CartService} from "../../common/services/cart.service";
 import {Cart} from "../../common/models/Cart.model";
 
-
 @Component({
   selector: 'app-page',
   templateUrl: './mainPage.component.html',
@@ -32,14 +31,36 @@ export class MainPageComponent {
 
   products: Array<Product> = [];
 
-
   addProductToCart(product: Product){
-    console.log(product)
-    const products = [];
-    products.push(product);
-    this.semiCart.products = products;
+    if(this.semiCart != undefined){
+      this.semiCart.products.push(product)
+    }else{
+      this.semiCart = {
+        id : Date.now().toString(),
+        user: {
+          id: "",
+          username:"",
+          password:"",
+          name:"",
+          surname:"",
+          email:"",
+          telNumber:"",
+          address:"",
+          city:"",
+          admin:false,
+        },
+        products: [product],
+        finalPrice: 0,
+        time: 0
+      }
+    }
     console.log(this.semiCart);
+
+
   }
+
+
+
 
   detail(x: any){
     alert(x)

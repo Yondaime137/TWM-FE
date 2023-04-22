@@ -65,7 +65,9 @@ export class CheckoutComponent {
         time: new Date().toTimeString()
       }
     }
-    console.log(this.cart)
+    if(this.cart) {
+      console.log(this.cart)
+    }
   }
   price(){
     this.totalPrice = 0

@@ -3,6 +3,7 @@ import {User} from "../../common/models/User.model";
 import {UserService} from "../../common/services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastService} from "angular-toastify";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ import {ToastService} from "angular-toastify";
 })
 export class LoginComponent {
   loginForm: any = FormGroup
-  constructor( private service: UserService,private toastService: ToastService) {
+  router;
+  constructor( private service: UserService,private toastService: ToastService, router: Router) {
+    this.router = router
     this.loginForm = new FormGroup({
       password: new FormControl(null, Validators.required),
       email: new FormControl(null, Validators.required),
@@ -33,8 +36,5 @@ export class LoginComponent {
         }
       }, 200);
     }
-  }
-  redirect(){
-    window.location.replace("/register")
   }
 }

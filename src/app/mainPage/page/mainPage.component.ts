@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {Product} from "../../common/models/Product.model";
-import {ProductService} from "../../common/services/product.service";
-import {CartService} from "../../common/services/cart.service";
+import {Product} from "../common/models/Product.model";
+import {ProductService} from "../common/services/product.service";
+import {CartService} from "../common/services/cart.service";
 
 
 @Component({

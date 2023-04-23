@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Product} from "../../../../common/models/Product.model";
-import {ProductService} from "../../../../common/services/product.service";
+import {Product} from "../../../common/models/Product.model";
+import {ProductService} from "../../../common/services/product.service";
 import {Router} from "@angular/router";
 import {ToastService} from "angular-toastify";
 

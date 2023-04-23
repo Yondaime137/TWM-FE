@@ -7,10 +7,10 @@ import {AngularToastifyModule, ToastService} from 'angular-toastify';
 import { MainPageComponent } from './mainPage/page/mainPage.component';
 import { CategoriesComponent } from './mainPage/categories/categories.component';
 import { CartComponent } from './mainPage/cart/cart.component';
-import {RegisterComponent} from "./userPage/register/register.component";
-import {LoginComponent} from "./userPage/login/login.component";
-import { CheckoutComponent } from './checkout/checkout/checkout.component';
-import { DetailComponent } from './detail/detail.component';
+import {RegisterComponent} from "./mainPage/userPage/register/register.component";
+import {LoginComponent} from "./mainPage/userPage/login/login.component";
+import { CheckoutComponent } from './mainPage/checkout/checkout/checkout.component';
+import { DetailComponent } from './mainPage/detail/detail.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GeneralParamsComponent } from './mainPage/product-creation/generalParams/generalParams.component';
@@ -22,7 +22,8 @@ import { NicComponent } from './mainPage/product-creation/product-specific-param
 import { ProcessorComponent } from './mainPage/product-creation/product-specific-params/processor/processor.component';
 import { DiscComponent } from './mainPage/product-creation/product-specific-params/disc/disc.component';
 import { EditProductComponent } from './mainPage/edit-product/edit-product.component';
-import { EditUserComponent } from './userPage/edit-user/edit-user.component';
+import { EditUserComponent } from './mainPage/userPage/edit-user/edit-user.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import { EditUserComponent } from './userPage/edit-user/edit-user.component';
     ReactiveFormsModule,
     AngularToastifyModule
   ],
-  providers: [ToastService],
+  providers: [ToastService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

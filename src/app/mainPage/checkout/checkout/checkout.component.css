@@ -13,6 +13,19 @@ input,label{
   width: 100%;
 }
 
+.formButton{
+  display: inline;
+  background-color: #001242;
+  margin: 5px;
+  border: solid 2px #00AAFF;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+.formButton:hover{
+  background-color: #00AAFF;
+}
+
 .box{
   font-size: 1.1rem;
 }

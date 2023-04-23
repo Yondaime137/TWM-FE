@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {User} from "./common/models/User.model";
+import {User} from "./mainPage/common/models/User.model";
 
 @Component({
   selector: 'app-root',
@@ -26,6 +26,7 @@ export class AppComponent {
     document.getElementsByClassName('burgerIcon')[1].classList.add("invisible");
     document.getElementsByClassName('formButton')[0].classList.add("invisible");
     document.getElementsByClassName('user')[0].classList.add("invisible");
+    document.getElementsByClassName('center')[0].classList.add("float-r");
   }
 
   showIcons(){
@@ -35,6 +36,7 @@ export class AppComponent {
     document.getElementsByClassName('burgerIcon')[1].classList.add("invisible");
     document.getElementsByClassName('formButton')[0].classList.remove("invisible");
     document.getElementsByClassName('user')[0].classList.remove("invisible");
+    document.getElementsByClassName('center')[0].classList.remove("float-r");
   }
 
   refresh(){

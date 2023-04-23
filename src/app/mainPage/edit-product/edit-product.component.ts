@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {ProductService} from "../../common/services/product.service";
-import {Product} from "../../common/models/Product.model";
+import {ProductService} from "../common/services/product.service";
+import {Product} from "../common/models/Product.model";
+import {User} from "../common/models/User.model";
 
 @Component({
   selector: 'app-edit-product',
@@ -13,7 +14,18 @@ export class EditProductComponent {
   router;
   productForm: any = FormGroup;
   product?: Product;
+  user?:User
   constructor(router: Router,private service: ProductService) {
+    this.router = router
+    let user = sessionStorage.getItem("user")
+    if (user) {
+      this.user = JSON.parse(user) as User;
+    }
+    if(this.user && this.user.admin){
+      return
+    }else{
+      this.router.navigateByUrl("/")
+    }
     this.productForm = new FormGroup({
       type: new FormControl(null, Validators.required),
       name: new FormControl(null, Validators.required),
@@ -22,7 +34,6 @@ export class EditProductComponent {
       count: new FormControl(null, Validators.required),
       img: new FormControl(null, Validators.required)
     })
-    this.router = router
     const productId = this.router.url.split('/')[2];
     this.service.getProduct(productId).subscribe((product: Product) => {
       this.product = product;

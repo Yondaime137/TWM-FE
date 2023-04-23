@@ -3,6 +3,7 @@
   <div>
     <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa-bars"></i>
     <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa fa-times invisible"></i>
+    <button *ngIf="user && user.admin" routerLink="/addproduct" class="formButton">Add product</button>
   </div>
   <div class="center" *ngIf="this.router.url == '/';
   then navRef

@@ -1,7 +1,7 @@
 <div *ngIf="product !== undefined" class="offset-1 col-10 overlay">
   <div class="row">
     <div class="col-4">
-      <img class="productImage product" src="http://cdn.onlinewebfonts.com/svg/img_148071.png" alt="Obrazok {{product.id }}">
+      <img class="productImage product" src="{{product.img}}" alt="Obrazok {{product.id }}">
     </div>
     <div class="col-8">
       <h3 class="product">{{product.name}}</h3>

@@ -29,7 +29,7 @@ export class LoginComponent {
           this.toastService.success('Logged in!');
           setTimeout(() => {
             window.location.replace("/")
-          }, 200);
+          }, 300);
         }
       }, 200);
     }

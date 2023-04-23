@@ -9,7 +9,7 @@
       <div class="col-8">
         <span >
           <h3 class="product">{{product.name.substring(0,20)}} <span *ngIf="product.name.length > 20">. . .</span></h3>
-          <p class="product overflow">{{product.description.substring(0,57)}} <span *ngIf="product.description.length > 57">. . .</span></p>
+          <p class="product overflow">{{product.description.substring(0,100)}} <span *ngIf="product.description.length > 100">. . .</span></p>
           <p class="product">{{product.price.toFixed(2)}} €</p>
         </span>
       </div>

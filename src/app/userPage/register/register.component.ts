@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../common/services/user.service";
 import {User} from "../../common/models/User.model";
+import {ToastService} from "angular-toastify";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import {User} from "../../common/models/User.model";
 export class RegisterComponent{
   registerForm: any = FormGroup
 
-  constructor( private service: UserService) {
+  constructor( private service: UserService,private toastService: ToastService) {
 
     this.registerForm = new FormGroup({
       username: new FormControl(null, Validators.required),
@@ -30,8 +31,14 @@ export class RegisterComponent{
     if (this.registerForm.valid) {
       if (this.registerForm.controls.password.value == this.registerForm.controls.repassword.value) {
         this.service.createUser(this.prepareUser()).subscribe(person => {
-          console.log(person);
+          sessionStorage.setItem("user", JSON.stringify(person));
         })
+        setTimeout(() => {
+            this.toastService.success('Registered and logged in!');
+            setTimeout(() => {
+              window.location.replace("/")
+            }, 300);
+        }, 200);
       }
     }
   }

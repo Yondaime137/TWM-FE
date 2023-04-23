@@ -59,15 +59,18 @@ Generate Color Scheme
 .productImage{
   background-color: white;
   max-width: 100%;
+  max-height: 140px;
 }
 
 .overflow{
-  max-height: 20px;
+  max-height: 40px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .addToCartButton{
+  bottom: 0;
+  width: 100%;
   display: inline;
   background-color: #001242;
   margin: 5px;
@@ -80,20 +83,16 @@ Generate Color Scheme
   background-color: #00AAFF;
 }
 
-.overflow::-webkit-scrollbar{
-  visibility: hidden;
-}
-
 
 @media only screen and (max-width: 1480px) {
   .overflow{
     max-height: 40px;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
   }
   .productImage{
     background-color: white;
-    max-height: 200px;
+    max-height: 180px;
   }
   .productsTab{
     width: 100%;

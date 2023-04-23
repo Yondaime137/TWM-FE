@@ -3,6 +3,7 @@ import {Product} from "../../common/models/Product.model";
 import {User} from "../../common/models/User.model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Cart} from "../../common/models/Cart.model";
+import {CartService} from "../../common/services/cart.service";
 
 @Component({
   selector: 'app-checkout',
@@ -19,7 +20,7 @@ export class CheckoutComponent {
   cart?: Cart;
   checkoutForm: any = FormGroup
 
-  constructor() {
+  constructor(private service: CartService) {
     this.checkoutForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
@@ -66,7 +67,7 @@ export class CheckoutComponent {
       }
     }
     if(this.cart) {
-      console.log(this.cart)
+      this.service.createCart(this.cart).subscribe()
     }
   }
   price(){

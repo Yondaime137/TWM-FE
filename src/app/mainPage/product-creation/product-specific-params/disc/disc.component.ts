@@ -36,8 +36,8 @@ export class DiscComponent {
     if (this.discForm.valid) {
       const params = new Map<string, string>([
         ["Type of disc", this.discForm.controls.discType.value],
-        ["Capacity", this.discForm.controls.capacity.value],
-        ["Lifetime", this.discForm.controls.lifetime.value]
+        ["Capacity", this.discForm.controls.capacity.value + "GB"],
+        ["Lifetime", this.discForm.controls.lifetime.value + "TBW"]
       ]);
       this.createdProduct = {
         name: this.mainparams.name,

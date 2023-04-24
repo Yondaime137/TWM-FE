@@ -1,22 +1,22 @@
 <div class="productDiv">
-  <form class="productForm" [formGroup]="productForm" (submit)="addProduct()">
-    <label for="type">Select product type</label>
-    <div class="input" id="type">{{product?.type}}</div>
+  <form [formGroup]="productEditForm" class="loginForm" (submit)="editProduct();">
     <label for="name">Name</label>
     <input type="text" formControlName="name" id="name" placeholder="Name">
     <label for="price">Price</label>
-    <input type="number" formControlName="price" id="price" placeholder="0">
+    <input type="text" formControlName="price" id="price" placeholder="Price">
     <label for="description">Description</label>
-    <input type="text" formControlName="description" id="description" placeholder="Description">
+    <input type="text" formControlName="description" id="description" placeholder="Name">
     <label for="count">Count</label>
-    <input type="number" formControlName="count" id="count" placeholder="0">
-    <label for="image">Upload image</label>
-    <input type="url" formControlName="img" id="image">
+    <input type="text" formControlName="count" id="count" placeholder="Count">
+    <label for="img">Image</label>
+    <input type="text" formControlName="img" id="img" placeholder="Image url">
 
-    <button class="formButton" type="submit" [disabled]="productForm.invalid">
-      <span *ngIf="productForm.invalid" class="text-danger">Fill out every section!</span>
-      <span *ngIf="!productForm.invalid">Update product listing!</span>
-    </button>    <button class="formButton" type="reset">Clear</button>
+    <button class="formButton" type="submit">
+      Update product listing!
+<!--      <span *ngIf="productEditForm.invalid" class="text-danger">Fill out every section!</span>-->
+<!--      <span  *ngIf="!productEditForm.invalid">Update product listing!</span>-->
+    </button>
+    <button class="formButton" type="reset">Clear</button>
   </form>
 </div>
 

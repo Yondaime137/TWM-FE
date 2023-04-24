@@ -12,6 +12,10 @@ import {CartService} from "../common/services/cart.service";
 export class MainPageComponent {
 
   constructor( private service: ProductService, cartService: CartService) {
+    let products = sessionStorage.getItem("products")
+    if(products) {
+      this.products = JSON.parse(products) as Array<Product>
+    }
   }
 
   ngOnInit():void{
@@ -34,7 +38,7 @@ export class MainPageComponent {
     setTimeout(()=>{
     if(typ == undefined){
       this.service.getProducts().subscribe((products: Array<Product>) => {
-        this.products = products;
+        this.cartProducts = products;
       });
     }else {
       console.log(this.additional)

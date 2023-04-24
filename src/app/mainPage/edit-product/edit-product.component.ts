@@ -12,7 +12,7 @@ import {User} from "../common/models/User.model";
 })
 export class EditProductComponent {
   router;
-  productForm: any = FormGroup;
+  productEditForm: any = FormGroup;
   product?: Product;
   user?:User
   constructor(router: Router,private service: ProductService) {
@@ -26,7 +26,7 @@ export class EditProductComponent {
     }else{
       this.router.navigateByUrl("/")
     }
-    this.productForm = new FormGroup({
+    this.productEditForm = new FormGroup({
       type: new FormControl(null, Validators.required),
       name: new FormControl(null, Validators.required),
       price: new FormControl(null, Validators.required),
@@ -37,25 +37,25 @@ export class EditProductComponent {
     const productId = this.router.url.split('/')[2];
     this.service.getProduct(productId).subscribe((product: Product) => {
       this.product = product;
-      this.productForm.setValue(this.prepareForm())
     });
+    this.productEditForm.setValue(this.prepareForm())
   }
 
-  addProduct(){
-    if (this.productForm.valid) {
+  editProduct(){
+    if (this.productEditForm.valid) {
       if (this.product != undefined) {
-        this.product.type = this.productForm.controls.type.value;
-        this.product.name = this.productForm.controls.name.value;
-        this.product.price = this.productForm.controls.price.value;
-        this.product.description = this.productForm.controls.description.value;
-        this.product.count = this.productForm.controls.count.value;
-        this.product.img = this.productForm.controls.img.value;
+        this.product.name = this.productEditForm.controls.name.value;
+        this.product.price = this.productEditForm.controls.price.value;
+        this.product.description = this.productEditForm.controls.description.value;
+        this.product.count = this.productEditForm.controls.count.value;
+        this.product.img = this.productEditForm.controls.img.value;
         this.service.updateProduct(this.product).subscribe();
         setTimeout(() => {
           this.router.navigateByUrl("/")
         }, 200);
       }
     }
+
   }
 
   prepareForm(){

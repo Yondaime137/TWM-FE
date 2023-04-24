@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnDestroy} from '@angular/core';
 import {Product} from "../common/models/Product.model";
 import {Router} from "@angular/router";
 
@@ -7,10 +7,14 @@ import {Router} from "@angular/router";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnDestroy{
   router;
   constructor(router:Router) {
     this.router = router
+  }
+
+  ngOnDestroy(){
+    sessionStorage.setItem("products",JSON.stringify(this.products))
   }
   totalPrice: number = 0.00;
 

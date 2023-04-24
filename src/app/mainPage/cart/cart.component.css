@@ -13,6 +13,8 @@
   bottom: 150px;
   border: 2px solid #00AAFF;
   padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .price{
@@ -38,8 +40,12 @@
   width: 100%;
 }
 
-.productprice{
-  float: right;
+table{
+  width: 100%;
+}
+
+tr{
+  border-bottom: 1px solid white;
 }
 
 

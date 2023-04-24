@@ -8,6 +8,7 @@ Generate Color Scheme
 
 .invisible{
   display: none;
+  transition: 0s !important;
 }
 
 body::-webkit-scrollbar {

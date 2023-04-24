@@ -1,8 +1,7 @@
-import {Component, Output} from '@angular/core';
-import {Product} from "../../common/models/Product.model";
-import {ProductService} from "../../common/services/product.service";
-import {CartService} from "../../common/services/cart.service";
-import {Cart} from "../../common/models/Cart.model";
+import {Component} from '@angular/core';
+import {Product} from "../common/models/Product.model";
+import {ProductService} from "../common/services/product.service";
+import {CartService} from "../common/services/cart.service";
 
 @Component({
   selector: 'app-page',
@@ -12,15 +11,15 @@ import {Cart} from "../../common/models/Cart.model";
 export class MainPageComponent {
 
   constructor( private service: ProductService, cartService: CartService) {
-
-    cartService.createCart(this.semiCart);
+    let products = sessionStorage.getItem("products")
+    if(products) {
+      this.products = JSON.parse(products) as Array<Product>
+    }
   }
 
   ngOnInit():void{
     this.GetProducts();
   }
-
-  semiCart!: Cart;
 
 
   GetProducts(){
@@ -29,9 +28,38 @@ export class MainPageComponent {
     });
   }
 
+  additional?: String;
+  getProductByAdditional(additional?: String){
+    this.additional = additional
+  }
+
+  getProductByType(typ?: String){
+    setTimeout(()=>{
+    if(typ == undefined){
+      this.service.getProducts().subscribe((products: Array<Product>) => {
+        this.cartProducts = products;
+      });
+    }else {
+      console.log(this.additional)
+      if (this.additional == undefined) {
+        this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
+          this.products = products;
+        });
+      } else {
+        this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
+          this.products = products;
+        });
+      }
+    }
+    }, 200);
+  }
+
+
   products: Array<Product> = [];
+  cartProducts: Array<Product> = [];
 
   addProductToCart(product: Product){
+<<<<<<< HEAD
     if(this.semiCart != undefined){
       this.semiCart.products.push(product)
     }else{
@@ -57,11 +85,17 @@ export class MainPageComponent {
     console.log(this.semiCart);
 
 
+=======
+    this.cartProducts.push(product);
+>>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
   }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
   detail(x: any){
     alert(x)
   }

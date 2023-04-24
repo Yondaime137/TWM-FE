@@ -3,7 +3,6 @@ import {Product} from "../common/models/Product.model";
 import {ProductService} from "../common/services/product.service";
 import {CartService} from "../common/services/cart.service";
 
-
 @Component({
   selector: 'app-page',
   templateUrl: './mainPage.component.html',
@@ -59,11 +58,47 @@ export class MainPageComponent {
   products: Array<Product> = [];
   cartProducts: Array<Product> = [];
 
-
   addProductToCart(product: Product){
+<<<<<<< HEAD
+    if(this.semiCart != undefined){
+      this.semiCart.products.push(product)
+    }else{
+      this.semiCart = {
+        id : Date.now().toString(),
+        user: {
+          id: "",
+          username:"",
+          password:"",
+          name:"",
+          surname:"",
+          email:"",
+          telNumber:"",
+          address:"",
+          city:"",
+          admin:false,
+        },
+        products: [product],
+        finalPrice: 0,
+        time: 0
+      }
+    }
+    console.log(this.semiCart);
+
+
+=======
     this.cartProducts.push(product);
+>>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
   }
 
+<<<<<<< HEAD
+=======
+
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
+>>>>>>> 665d5e479da1dd83bef795b50cc72c4cb0f52daa
   detail(x: any){
     alert(x)
   }

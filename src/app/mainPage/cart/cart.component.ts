@@ -17,7 +17,6 @@ export class CartComponent implements OnDestroy{
     sessionStorage.setItem("products",JSON.stringify(this.products))
   }
   totalPrice: number = 0.00;
-
   @Input("Products")
   products: Array<Product>=[]
 
@@ -43,5 +42,9 @@ export class CartComponent implements OnDestroy{
       this.totalPrice += this.products[i].price;
     }
   }
+
+  // refreshPrice(){
+  //   this.totalPrice =
+  // }
 
 }

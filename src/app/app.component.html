@@ -16,7 +16,7 @@
         <button class="formButton" (click)="logOut()">Log Out</button>
       </span>
       <span *ngIf="user == undefined">
-        <button class="formButton" routerLink="/login">Log In</button>
+        <button class="formButton loginButton" routerLink="/login">Log In</button>
       </span>
     </span>
     <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa-shopping-cart"></i>

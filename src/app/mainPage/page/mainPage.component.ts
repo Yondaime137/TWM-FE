@@ -10,47 +10,48 @@ import {CartService} from "../common/services/cart.service";
 })
 export class MainPageComponent {
 
-  constructor( private service: ProductService, cartService: CartService) {
+  constructor(private service: ProductService, cartService: CartService) {
     let products = sessionStorage.getItem("products")
-    if(products) {
+    if (products) {
       this.products = JSON.parse(products) as Array<Product>
     }
   }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     this.GetProducts();
   }
 
 
-  GetProducts(){
+  GetProducts() {
     this.service.getProducts().subscribe((products: Array<Product>) => {
       this.products = products;
     });
   }
 
   additional?: String;
-  getProductByAdditional(additional?: String){
+
+  getProductByAdditional(additional?: String) {
     this.additional = additional
   }
 
-  getProductByType(typ?: String){
-    setTimeout(()=>{
-    if(typ == undefined){
-      this.service.getProducts().subscribe((products: Array<Product>) => {
-        this.cartProducts = products;
-      });
-    }else {
-      console.log(this.additional)
-      if (this.additional == undefined) {
-        this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
-          this.products = products;
+  getProductByType(typ?: String) {
+    setTimeout(() => {
+      if (typ == undefined) {
+        this.service.getProducts().subscribe((products: Array<Product>) => {
+          this.cartProducts = products;
         });
       } else {
-        this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
-          this.products = products;
-        });
+        console.log(this.additional)
+        if (this.additional == undefined) {
+          this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
+            this.products = products;
+          });
+        } else {
+          this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
+            this.products = products;
+          });
+        }
       }
-    }
     }, 200);
   }
 
@@ -58,48 +59,11 @@ export class MainPageComponent {
   products: Array<Product> = [];
   cartProducts: Array<Product> = [];
 
-  addProductToCart(product: Product){
-<<<<<<< HEAD
-    if(this.semiCart != undefined){
-      this.semiCart.products.push(product)
-    }else{
-      this.semiCart = {
-        id : Date.now().toString(),
-        user: {
-          id: "",
-          username:"",
-          password:"",
-          name:"",
-          surname:"",
-          email:"",
-          telNumber:"",
-          address:"",
-          city:"",
-          admin:false,
-        },
-        products: [product],
-        finalPrice: 0,
-        time: 0
-      }
-    }
-    console.log(this.semiCart);
-
-
-=======
+  addProductToCart(product: Product) {
     this.cartProducts.push(product);
->>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
   }
 
-<<<<<<< HEAD
-=======
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 45ab3e84829781b9b0da84f0274251f3f0500d67
->>>>>>> 665d5e479da1dd83bef795b50cc72c4cb0f52daa
-  detail(x: any){
+  detail(x: any) {
     alert(x)
   }
 }

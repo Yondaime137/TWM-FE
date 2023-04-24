@@ -10,11 +10,9 @@
     <input type="text" formControlName="count" id="count" placeholder="Count">
     <label for="img">Image</label>
     <input type="text" formControlName="img" id="img" placeholder="Image url">
-
-    <button class="formButton" type="submit">
-      Update product listing!
-<!--      <span *ngIf="productEditForm.invalid" class="text-danger">Fill out every section!</span>-->
-<!--      <span  *ngIf="!productEditForm.invalid">Update product listing!</span>-->
+    <button class="formButton" type="submit" [disabled]="productEditForm.invalid">
+      <span *ngIf="productEditForm.invalid" class="text-danger">Fill out every section!</span>
+      <span  *ngIf="!productEditForm.invalid">Update product listing!</span>
     </button>
     <button class="formButton" type="reset">Clear</button>
   </form>

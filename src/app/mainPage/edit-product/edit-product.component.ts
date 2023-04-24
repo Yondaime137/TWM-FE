@@ -12,7 +12,7 @@ import {User} from "../common/models/User.model";
 })
 export class EditProductComponent {
   router;
-  productEditForm: any = FormGroup;
+  productEditForm: any;
   product?: Product;
   user?:User
   constructor(router: Router,private service: ProductService) {
@@ -39,7 +39,9 @@ export class EditProductComponent {
       this.product = product;
     });
     this.productEditForm.setValue(this.prepareForm())
+
   }
+
 
   editProduct(){
     if (this.productEditForm.valid) {

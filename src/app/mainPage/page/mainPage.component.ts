@@ -64,8 +64,6 @@ export class MainPageComponent {
     this.cartProducts.push(product);
   }
 
-
-
   detail(x: any){
     alert(x)
   }

@@ -1,6 +1,6 @@
 <div class="box">
-  <div class="carttxt">Cart</div>
-  <div class="cart">
+  <div *ngIf="cart != null" class="carttxt">Cart</div>
+  <div *ngIf="cart != null" class="cart">
     <div *ngFor="let product of products">
       <div class="productprice">{{product.price.toFixed(2)}} €</div>
       <div class="productname">{{product.name}}</div>
@@ -28,8 +28,8 @@
       <input type="text" formControlName="number" id="number" placeholder="Number">
 
       <button class="formButton" type="submit" [disabled]="checkoutForm.invalid">
-        <span *ngIf="checkoutForm.invalid" class="text-danger">Fill out every section!</span>
-        <span *ngIf="!checkoutForm.invalid">Submit your order!</span>
+<!--        <span *ngIf="checkoutForm.invalid" class="text-danger">Fill out every section!</span>-->
+<!--        <span *ngIf="!checkoutForm.invalid">Submit your order!</span>-->
       </button>
       <button class="formButton" type="reset">Clear</button>
 

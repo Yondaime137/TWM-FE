@@ -1,0 +1,19 @@
+<app-cart [productList]="cartProducts" class="cart carttranslation"></app-cart>
+<app-categories (searchByType)="getProductByType($event)" (searchByAdditional)="getProductByAdditional($event)" class="categories categoriestranslation"></app-categories>
+<div class="content col-8 offset-2 d-flex p-2 flex-wrap justify-content-center">
+  <div *ngFor="let product of products" class="productsTab">
+    <div class="row" routerLink="/detail/{{product.id}}">
+      <div class="col-4">
+        <img class="productImage product" src="{{product.img}}" alt="Obrazok {{product.id }}">
+      </div>
+      <div class="col-8">
+        <span >
+          <h3 class="product">{{product.name.substring(0,16)}} <span *ngIf="product.name.length > 20">. . .</span></h3>
+          <p class="product overflow">{{product.description.substring(0,100)}} <span *ngIf="product.description.length > 100">. . .</span></p>
+          <p class="product">{{product.price.toFixed(2)}} €</p>
+        </span>
+      </div>
+    </div>
+    <button class="addToCartButton" (click)="addProductToCart(product);">Add to cart</button>
+  </div>
+</div><br>

@@ -1,0 +1,51 @@
+.box{
+  font-size: 1.1rem;
+  background-color: #001242;
+  height:100%
+}
+
+.cart{
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  top: 50px;
+  height: auto;
+  bottom: 150px;
+  border: 2px solid #00AAFF;
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.price{
+  margin: 0 10px;
+}
+
+.checkout{
+  float: right;
+  background-color: #000022;
+  border: 2px solid #00AAFF;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.top{
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.bot{
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+}
+
+table{
+  width: 100%;
+}
+
+tr{
+  border-bottom: 1px solid white;
+}
+
+

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Router} from "@angular/router";
-import {User} from "./mainPage/common/models/User.model";
+import {Product} from "./common/models/Product.model";
+import {ProductService} from "./common/services/product.service";
 
 @Component({
   selector: 'app-root',
@@ -8,56 +8,52 @@ import {User} from "./mainPage/common/models/User.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TWM Electronics';
-  router;
-  user?: User;
-  constructor(router: Router) {
-    let user = sessionStorage.getItem("user")
-    if (user) {
-      this.user = JSON.parse(user) as User;
-    }
-    this.router = router
-  }
+  filter?:String;
+  additional?: String;
+  products?: Product[];
+  counter:number = 0;
 
-  hideIcons(){
-    document.getElementsByClassName('cartIcon')[0].classList.add("invisible");
-    document.getElementsByClassName('burgerIcon')[0].classList.add("invisible");
-    document.getElementsByClassName('cartIcon')[1].classList.add("invisible");
-    document.getElementsByClassName('burgerIcon')[1].classList.add("invisible");
-    document.getElementsByClassName('formButton')[0].classList.add("invisible");
-    document.getElementsByClassName('user')[0].classList.add("invisible");
-    document.getElementsByClassName('center')[0].classList.add("float-r");
-  }
-
-  showIcons(){
-    document.getElementsByClassName('cartIcon')[0].classList.remove("invisible");
-    document.getElementsByClassName('burgerIcon')[0].classList.remove("invisible");
-    document.getElementsByClassName('cartIcon')[1].classList.add("invisible");
-    document.getElementsByClassName('burgerIcon')[1].classList.add("invisible");
-    document.getElementsByClassName('formButton')[0].classList.remove("invisible");
-    document.getElementsByClassName('user')[0].classList.remove("invisible");
-    document.getElementsByClassName('center')[0].classList.remove("float-r");
-  }
-
-  refresh(){
-    window.location.replace("/")
-  }
-
-  vysunSa(x:String){
-    if (x == 'cart') {
-      document.getElementsByClassName("cart")[0].classList.toggle("carttranslation");
-      document.getElementsByClassName("cartIcon")[0].classList.toggle("invisible");
-      document.getElementsByClassName("cartIcon")[1].classList.toggle("invisible");
-    } else if (x == 'categories') {
-      document.getElementsByClassName("categories")[0].classList.toggle("categoriestranslation");
-      document.getElementsByClassName("burgerIcon")[0].classList.toggle("invisible");
-      document.getElementsByClassName("burgerIcon")[1].classList.toggle("invisible");
+  constructor(private service: ProductService) {
+    let products = sessionStorage.getItem("products")
+    if (products) {
+      this.products = JSON.parse(products) as Array<Product>
     }
   }
 
-  logOut():void{
-    sessionStorage.clear()
-    window.location.replace("/")
+  getProductByAdditional(additional?: String) {
+    this.additional = additional
+  }
+
+  getProductByType(typ?: String) {
+    setTimeout(() => {
+      if (typ == undefined) {
+        this.service.getProducts().subscribe((products: Array<Product>) => {
+          this.products = products;
+        });
+      } else {
+        console.log(this.additional)
+        if (this.additional == undefined) {
+          this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
+            this.products = products;
+          });
+        } else {
+          this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
+            this.products = products;
+          });
+        }
+      }
+    }, 200);
+  }
+  filterTerm(word: any){
+    if(word){
+      this.filter = word.toString();
+    }else{
+      this.filter = " "
+    }
+  }
+
+  refreshCart(){
+    this.counter += 1;
   }
 }
 

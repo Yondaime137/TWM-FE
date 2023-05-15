@@ -1,39 +1,4 @@
-<lib-toastify-toast-container></lib-toastify-toast-container>
-<div class="navabar">
-  <div>
-    <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa-bars"></i>
-    <i (click)="vysunSa('categories')" class="pointer burgerIcon fa fa fa-times invisible"></i>
-    <button *ngIf="user && user.admin" routerLink="/addproduct" class="formButton">Add product</button>
-  </div>
-  <div class="center" *ngIf="this.router.url == '/';
-  then navRef
-  else navRel">
-  </div>
-  <div>
-    <span class="user">
-      <span *ngIf="user != undefined">
-        <span class="pointer" routerLink="/edituser"><i class="fa fa-cog"></i>{{user.username}}</span>
-        <button class="formButton" (click)="logOut()">Log Out</button>
-      </span>
-      <span *ngIf="user == undefined">
-        <button class="formButton loginButton" routerLink="/login">Log In</button>
-      </span>
-    </span>
-    <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa-shopping-cart"></i>
-    <i (click)="vysunSa('cart')" class="pointer cartIcon fa fa fa-times invisible"></i>
-  </div>
-</div>
-
-<div *ngIf="this.router.url == '/';then thenBlock else elseBlock">
-</div>
-
-
-<div class="footer">
-  <i class="ftricon fa fa-lg fa-instagram"></i>
-  <i class="ftricon fa fa-lg fa-facebook-f"></i>
-  <i class="ftricon fa fa-lg fa-github"></i>
-</div>
-<ng-template #navRef><div class="pointer center" (click)="refresh();">TWM Electronics</div></ng-template>
-<ng-template #navRel><div class="pointer center" routerLink="/">TWM Electronics</div></ng-template>
-<ng-template #thenBlock> <router-outlet (activate)="showIcons()"></router-outlet> </ng-template>
-<ng-template #elseBlock> <router-outlet (activate)="hideIcons()"></router-outlet> </ng-template>
+<app-navbar (searchByWord)="filterTerm($event)"></app-navbar>
+<app-categories (searchByType)="getProductByType($event)" (searchByAdditional)="getProductByAdditional($event)" class="categories categoriestranslation"></app-categories>
+<app-cart [cartRefresh]="counter" class="cart carttranslation"></app-cart>
+<app-product-list (cartRefresh)="refreshCart()" [filterTerms]="filter" [productsInput]="products"></app-product-list>

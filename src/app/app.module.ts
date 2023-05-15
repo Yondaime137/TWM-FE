@@ -1,58 +1,38 @@
 import { NgModule } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import {RouterOutlet} from "@angular/router";
 import {AngularToastifyModule, ToastService} from 'angular-toastify';
-import { MainPageComponent } from './mainPage/page/mainPage.component';
-import { CategoriesComponent } from './mainPage/categories/categories.component';
-import { CartComponent } from './mainPage/cart/cart.component';
-import {RegisterComponent} from "./mainPage/userPage/register/register.component";
-import {LoginComponent} from "./mainPage/userPage/login/login.component";
-import { CheckoutComponent } from './mainPage/checkout/checkout/checkout.component';
-import { DetailComponent } from './mainPage/detail/detail.component';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { GeneralParamsComponent } from './mainPage/product-creation/generalParams/generalParams.component';
-import { PSUComponent } from './mainPage/product-creation/product-specific-params/psu/psu.component';
-import { ProductCreationPageComponent } from './mainPage/product-creation/product-creation-page/product-creation-page.component';
-import { ProductSpecificParamsComponent } from './mainPage/product-creation/product-specific-params/product-specific-params.component';
-import { MotherboardComponent } from './mainPage/product-creation/product-specific-params/motherboard/motherboard.component';
-import { NicComponent } from './mainPage/product-creation/product-specific-params/nic/nic.component';
-import { ProcessorComponent } from './mainPage/product-creation/product-specific-params/processor/processor.component';
-import { DiscComponent } from './mainPage/product-creation/product-specific-params/disc/disc.component';
-import { EditProductComponent } from './mainPage/edit-product/edit-product.component';
-import { EditUserComponent } from './mainPage/userPage/edit-user/edit-user.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+// import { ConnectorComponent } from './connector/connector.component';
+import { NavbarComponent } from './connector/navbar/navbar.component';
+import {HttpClientModule} from "@angular/common/http";
+import { NavLeftComponent } from './connector/navbar/nav-left/nav-left.component';
+import { NavMidComponent } from './connector/navbar/nav-mid/nav-mid.component';
+import { NavRightComponent } from './connector/navbar/nav-right/nav-right.component';
+import { ProductListComponent } from './connector/product-list/product-list.component';
+import { ProductComponent } from './connector/product-list/product/product.component';
+import { CategoriesComponent } from './connector/categories/categories.component';
+import {FormsModule} from "@angular/forms";
+import { CartComponent } from './connector/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
+    // ConnectorComponent,
+    NavbarComponent,
+    NavLeftComponent,
+    NavMidComponent,
+    NavRightComponent,
+    ProductListComponent,
+    ProductComponent,
     CategoriesComponent,
     CartComponent,
-    LoginComponent,
-    RegisterComponent,
-    CheckoutComponent,
-    DetailComponent,
-    GeneralParamsComponent,
-    PSUComponent,
-    ProductCreationPageComponent,
-    ProductSpecificParamsComponent,
-    MotherboardComponent,
-    NicComponent,
-    ProcessorComponent,
-    DiscComponent,
-    EditProductComponent,
-    EditUserComponent,
   ],
   imports: [
-    FormsModule,
     HttpClientModule,
-    AppRoutingModule,
     BrowserModule,
-    RouterOutlet,
-    ReactiveFormsModule,
-    AngularToastifyModule
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [ToastService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

@@ -1,0 +1,12 @@
+<div class="box">
+  <br>
+  <div *ngIf="cartList.length>0" class="ctb">
+    <div class="flex" *ngFor="let product of cartList; let i = index;">
+      <div>&nbsp;<i (click)="popProductFromCart(i)" class="fa fa-minus-circle">&nbsp;</i>{{product.name}}</div>
+      <div>{{product.price.toFixed(2)}}€</div>
+    </div>
+  </div>
+  <div class="price">
+    {{totalPrice.toFixed(2)}}€
+  </div>
+</div>

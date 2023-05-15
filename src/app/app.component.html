@@ -11,7 +11,7 @@
   </div>
   <div>
     <span class="user">
-      <span *ngIf="user != undefined">
+      <span class="loginButton" *ngIf="user != undefined">
         <span class="pointer" routerLink="/edituser"><i class="fa fa-cog"></i>{{user.username}}</span>
         <button class="formButton" (click)="logOut()">Log Out</button>
       </span>

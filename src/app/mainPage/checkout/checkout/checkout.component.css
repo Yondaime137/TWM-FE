@@ -10,6 +10,10 @@ input,label{
   display: block;
 }
 
+input{
+  color: black;
+}
+
 .width{
   width: 100%;
 }

@@ -6,7 +6,7 @@ Generate Color Scheme
  */
 .loginButton{
   right: 3%;
-  padding-right: 15px;
+  padding: 0 15px;
   height: 30px;
   position: absolute;
   text-align: center;

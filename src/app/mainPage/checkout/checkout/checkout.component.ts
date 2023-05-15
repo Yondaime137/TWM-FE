@@ -29,7 +29,7 @@ export class CheckoutComponent {
       address: new FormControl(null, Validators.required),
       city: new FormControl(null, Validators.required)
     })
-    let products = sessionStorage.getItem("products")
+    let products = sessionStorage.getItem("productsgg")
     if(products) {
       this.products = JSON.parse(products) as Array<Product>
     }

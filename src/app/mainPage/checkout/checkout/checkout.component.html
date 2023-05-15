@@ -28,8 +28,8 @@
       <input type="text" formControlName="number" id="number" placeholder="Number">
 
       <button class="formButton" type="submit" [disabled]="checkoutForm.invalid">
-<!--        <span *ngIf="checkoutForm.invalid" class="text-danger">Fill out every section!</span>-->
-<!--        <span *ngIf="!checkoutForm.invalid">Submit your order!</span>-->
+        <span *ngIf="checkoutForm.invalid" class="text-danger">Fill out every section!</span>
+        <span *ngIf="!checkoutForm.invalid">Submit your order!</span>
       </button>
       <button class="formButton" type="reset">Clear</button>
 

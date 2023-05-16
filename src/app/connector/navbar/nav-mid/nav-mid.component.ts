@@ -11,4 +11,7 @@ export class NavMidComponent {
 constructor(router: Router) {
   this.router = router;
 }
+refresh(){
+  window.location.replace("/")
+}
 }

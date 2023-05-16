@@ -1,10 +1,4 @@
 <div class="form-group">
-<!--  <input-->
-<!--    type="text"-->
-<!--    class="form-control"-->
-<!--    placeholder="Search..."-->
-<!--    [(ngModel)]="filterTerm"-->
-<!--  />-->
 </div>
 <div class="flex">
   <app-product (cartRefresh)="refreshCart()" class="child" *ngFor="let product of products | filter: filterTerm;" [productInput]="product"></app-product>

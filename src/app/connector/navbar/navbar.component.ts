@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class NavbarComponent {
   filter?: String
+  router;
+  constructor(router: Router) {
+    this.router = router
+  }
   @Output()
   searchByWord = new EventEmitter<String>();
   filterTerm(word: String){

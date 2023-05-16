@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {Product} from "./common/models/Product.model";
-import {ProductService} from "./common/services/product.service";
 
 @Component({
   selector: 'app-root',
@@ -8,52 +6,29 @@ import {ProductService} from "./common/services/product.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  filter?:String;
-  additional?: String;
-  products?: Product[];
-  counter:number = 0;
+  constructor() {
+    const root = document.documentElement;
+    let theme = sessionStorage.getItem("theme")
+    if(theme) {
+      let color = JSON.parse(theme) as boolean
+      if (!color){
+        root.style.setProperty('--front', '#e3df28');
+        root.style.setProperty('--supper', '#503146');
+        root.style.setProperty('--tsupper', 'rgba(80, 49, 70,0.7)');
+        root.style.setProperty('--back', '#1e0c18');
+        root.style.setProperty('--text', '#FFFFFF');
+        root.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('assets/images/Yellow-Purple.jpg')"
 
-  constructor(private service: ProductService) {
-    let products = sessionStorage.getItem("products")
-    if (products) {
-      this.products = JSON.parse(products) as Array<Product>
-    }
-  }
+      }else{
+        root.style.setProperty('--front', '#00AAFF');
+        root.style.setProperty('--supper', '#001242');
+        root.style.setProperty('--back', '#000022');
+        root.style.setProperty('--tsupper', 'rgba(0, 18, 66,0.7)');
+        root.style.setProperty('--text', 'whitesmoke');
+        root.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('assets/images/TechBackgorund.png')"
 
-  getProductByAdditional(additional?: String) {
-    this.additional = additional
-  }
-
-  getProductByType(typ?: String) {
-    setTimeout(() => {
-      if (typ == undefined) {
-        this.service.getProducts().subscribe((products: Array<Product>) => {
-          this.products = products;
-        });
-      } else {
-        console.log(this.additional)
-        if (this.additional == undefined) {
-          this.service.getProductByType(typ).subscribe((products: Array<Product>) => {
-            this.products = products;
-          });
-        } else {
-          this.service.getProductByAdditional(typ, this.additional).subscribe((products: Array<Product>) => {
-            this.products = products;
-          });
-        }
       }
-    }, 200);
-  }
-  filterTerm(word: any){
-    if(word){
-      this.filter = word.toString();
-    }else{
-      this.filter = " "
     }
-  }
-
-  refreshCart(){
-    this.counter += 1;
   }
 }
 

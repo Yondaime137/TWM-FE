@@ -7,27 +7,31 @@
 }
 
 input{
+  padding: 5px;
   font-size: 1.2rem;
   display: inline-grid;
   background: none;
   margin: 15px 15px;
-  border: 1px solid var(--front);
-  border-radius: 10px;
+  border: 2px solid var(--front);
+  border-radius: 15px;
   width: 50%;
 }
 
 .searchBar{
+  color:white;
   background-color: var(--supper);
   padding-bottom: 10px;
   border-radius: 25px;
 }
 
 .barIcon{
+  cursor: pointer;
   margin-right: 15px;
   transform: translateY(5px);
 }
 
 .searchIcon{
+  cursor: pointer;
   background-color: rgba(255,255,255,0.4);
   border-radius: 20px;
   padding: 5px;

@@ -1,12 +1,20 @@
 <app-nav-mid></app-nav-mid>
 <div class="cont">
-  hello
-  <span *ngFor="let purchase of purchases">
-    <span *ngFor="let products of purchase.products">
-      <div>
-        <span>{{products.name}}</span>
-        <span>{{products.price}}</span>
+  <div class="loop" *ngFor="let purchase of purchases">
+    <h3 class="flex title">
+      <span>{{purchase.time}}</span>
+      <span>{{purchase.finalPrice.toFixed(2)}}€</span>
+    </h3>
+    <span class="title" *ngFor="let products of purchase.products">
+      <div class="flex">
+        <span>{{products.name}} </span>
+        <span>{{products.price.toFixed(2)}}€</span>
       </div>
     </span>
-  </span>
+    <br>
+    <div class="flex">
+      <span>{{purchase.name}}</span>
+      <span>{{purchase.address}}</span>
+    </div>
+  </div>
 </div>

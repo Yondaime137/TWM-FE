@@ -54,19 +54,19 @@ export class CheckoutComponent {
       this.cart={
         email: this.user.email,
         name: this.user.firstName + " " + this.user.lastName,
-        address: this.user.address + " " + this.user.city,
+        address: this.user.address + ", " + this.user.city,
         products: this.products,
         finalPrice: this.sumPrice(),
-        time: new Date().toTimeString()
+        time: this.time()
       }
     }else{
       this.cart={
         products: this.products,
         finalPrice: this.sumPrice(),
-        time: new Date().toTimeString(),
+        time: this.time(),
         email: this.checkoutForm.controls.email.value,
         name: this.checkoutForm.controls.firstName.value + " " + this.checkoutForm.controls.lastName.value,
-        address: this.checkoutForm.controls.address.value + " " + this.checkoutForm.controls.city.value
+        address: this.checkoutForm.controls.address.value + ", " + this.checkoutForm.controls.city.value
       }
     }
     if(this.cart){
@@ -94,5 +94,16 @@ export class CheckoutComponent {
     this.products.splice(i, 1);
     this.totalPrice = this.sumPrice()
     sessionStorage.setItem("products",JSON.stringify(this.products));
+  }
+
+  time():String{
+    const date = new Date();
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Note: month is zero-based
+    const year = date.getFullYear().toString();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+    return (day + "." + month + "." + year + " " + hours + ":" + minutes + ":" + seconds)
   }
 }

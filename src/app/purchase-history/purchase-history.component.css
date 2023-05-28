@@ -4,4 +4,19 @@
   background-color: rgba(0,0,0,0.5);
   padding: 50px 0;
   border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.loop{
+  margin: 20px;
+  border-bottom: 2px solid var(--text);
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.title{
+  border-bottom: 2px solid var(--text);
 }

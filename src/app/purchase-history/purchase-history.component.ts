@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {CartService} from "../common/services/cart.service";
 import {User} from "../common/models/User.model";
-import {Product} from "../common/models/Product.model";
 import {Cart} from "../common/models/Cart.model";
 import {ToastService} from "angular-toastify";
 
@@ -19,8 +18,10 @@ export class PurchaseHistoryComponent {
       let x = JSON.parse(user) as User
       this.email = x.email
     }else{
-      window.location.replace("/")
       this.toastService.error("You need to be logged in!")
+      setTimeout(() => {
+        window.location.replace("/")
+      }, 300);
     }
     this.getPurchases()
   }

@@ -73,6 +73,13 @@ export class CheckoutComponent {
       this.service.createCart(this.cart).subscribe(product => {
         this.toastService.success('Order submitted!');
         setTimeout(()=>{
+          setTimeout(()=>{
+            this.service.sendEmail({
+              recipient: this.cart!.email,
+              msgBody: "Thank you for your purchase!",
+              subject: "TWM Electronic Order - " + this.cart!.time
+            }).subscribe()
+          }, 200);
           this.router.navigateByUrl("/")
         }, 200);
       },error => {

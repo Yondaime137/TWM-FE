@@ -18,4 +18,8 @@ export class CartService {
   getPurchasesByEmail(email: String): Observable<Cart[]>{
     return this.http.get<Cart[]>(`${this.url}/user/${email}`)
   }
+
+  sendEmail(mail: any): Observable<number>{
+    return this.http.post<number>(this.url + "/email", mail)
+  }
 }

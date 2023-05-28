@@ -10,9 +10,12 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'http://161.97.132.138:8080/cart';
+  private url = 'localhost:8080/purchase';
 
   createCart(cart: Cart): Observable<number>{
     return this.http.post<number>(this.url, cart)
+  }
+  getPurchasesByEmail(email: String): Observable<Cart[]>{
+    return this.http.get<Cart[]>(`${this.url}/user/${email}`)
   }
 }

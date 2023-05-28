@@ -30,6 +30,7 @@ import { DiscComponent } from './product-creation/product-specific-params/disc/d
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ProductEditComponent,
     ProductDetailComponent,
     CheckoutComponent,
+    PurchaseHistoryComponent,
   ],
   imports: [
     HttpClientModule,

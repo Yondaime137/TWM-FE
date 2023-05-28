@@ -52,30 +52,24 @@ export class CheckoutComponent {
     if(this.products)
     if(this.user){
       this.cart={
-        user: this.user,
+        email: this.user.email,
+        name: this.user.firstName + " " + this.user.lastName,
+        address: this.user.address + " " + this.user.city,
         products: this.products,
         finalPrice: this.sumPrice(),
         time: new Date().toTimeString()
       }
     }else{
       this.cart={
-        user: {
-          username: "",
-          password: "",
-          admin: false,
-          firstName: this.checkoutForm.controls.firstName.value,
-          lastName: this.checkoutForm.controls.lastName.value,
-          number: this.checkoutForm.controls.number.value,
-          email: this.checkoutForm.controls.email.value,
-          address: this.checkoutForm.controls.address.value,
-          city: this.checkoutForm.controls.city.value,
-        },
         products: this.products,
         finalPrice: this.sumPrice(),
-        time: new Date().toTimeString()
+        time: new Date().toTimeString(),
+        email: this.checkoutForm.controls.email.value,
+        name: this.checkoutForm.controls.firstName.value + " " + this.checkoutForm.controls.lastName.value,
+        address: this.checkoutForm.controls.address.value + " " + this.checkoutForm.controls.city.value
       }
     }
-    if(this.cart) {
+    if(this.cart){
       this.service.createCart(this.cart).subscribe(product => {
         this.toastService.success('Order submitted!');
         setTimeout(()=>{

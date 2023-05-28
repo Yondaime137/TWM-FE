@@ -4,6 +4,7 @@
   <div class="btns">
     <button *ngIf="user && user.admin" class="topButton" routerLink="/addproduct">Add product</button>&nbsp;
     <button class="topButton" (click)="theme()">Change theme</button>
+    <button class="topButton"  routerLink="/purchases">Purchase history</button>
   </div>
     <div class="editUserDiv" *ngIf="user">
       <div class="reg">Edit user details</div>

@@ -20,7 +20,7 @@
   <input formControlName="description" id="description" type="text">
   <label for="image">Upload image</label>
   <input formControlName="image" id="image" type="url">
-  <button class="formButton" type="submit" [disabled]="editProduct.invalid">
+  <button (click)="editDetail()" class="formButton" type="submit" [disabled]="editProduct.invalid">
     <span *ngIf="editProduct.invalid" class="text-danger">Fill out every section!</span>
     <span *ngIf="!editProduct.invalid">Edit product!</span>
   </button>

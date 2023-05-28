@@ -8,6 +8,7 @@ import {ProductCreationComponent} from "./product-creation/product-creation.comp
 import {ProductEditComponent} from "./product-edit/product-edit.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {CheckoutComponent} from "./checkout/checkout.component";
+import {PurchaseHistoryComponent} from "./purchase-history/purchase-history.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   },{
     path: 'checkout',
     component: CheckoutComponent
+  },{
+    path: 'purchases',
+    component: PurchaseHistoryComponent
   },{
     path: 'editproduct',
     component: ProductEditComponent,

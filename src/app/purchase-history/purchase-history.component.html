@@ -1,0 +1,12 @@
+<app-nav-mid></app-nav-mid>
+<div class="cont">
+  hello
+  <span *ngFor="let purchase of purchases">
+    <span *ngFor="let products of purchase.products">
+      <div>
+        <span>{{products.name}}</span>
+        <span>{{products.price}}</span>
+      </div>
+    </span>
+  </span>
+</div>

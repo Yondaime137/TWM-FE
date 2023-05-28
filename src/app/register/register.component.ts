@@ -43,7 +43,7 @@ export class RegisterComponent{
             }, 300);
           }, 200);
         },(error)=>
-          this.toastService.error('Something went wrong!'))
+          this.toastService.error("Something went wrong! (Username/Email may already be in use)"))
       }
     }
   }

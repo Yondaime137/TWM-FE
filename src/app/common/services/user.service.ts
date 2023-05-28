@@ -8,7 +8,7 @@ import {User} from "../models/User.model";
 })
 export class UserService {
   private url =
-    'http://161.97.132.138:8080/users';
+    'localhost:8080/users';
   constructor(private http: HttpClient) { }
 
   getUser(userEmail: String, userPassword: String): Observable<User> {

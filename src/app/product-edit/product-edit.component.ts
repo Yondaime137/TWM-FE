@@ -60,4 +60,33 @@ export class ProductEditComponent {
       image: this.product?.img
     }
   }
+
+  editDetail(){
+    if (this.editProduct.valid) {
+      this.service.updateProduct(this.prepareProduct()).subscribe(() => {
+        sessionStorage.setItem("user", JSON.stringify(this.prepareProduct()));
+        setTimeout(() => {
+          this.toastService.success('Edited product details!');
+          setTimeout(() => {
+            this.router.navigateByUrl("/")
+          }, 300);
+        }, 200);
+      })
+    }
+  }
+
+  prepareProduct():Product{
+    return {
+      id: this.product!.id,
+      name: this.editProduct.controls.name.value,
+      type:this.editProduct.controls.type.value,
+      count:this.editProduct.controls.count.value,
+      price:this.editProduct.controls.price.value,
+      description:this.editProduct.controls.description.value,
+      img:this.editProduct.controls.image.value,
+      additional:this.product!.additional,
+      parameters: this.product!.parameters
+    }
+  }
+
 }

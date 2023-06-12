@@ -10,7 +10,7 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'localhost:8080/purchase';
+  private url = 'http://localhost:8080/purchase';
 
   createCart(cart: Cart): Observable<number>{
     return this.http.post<number>(this.url, cart)

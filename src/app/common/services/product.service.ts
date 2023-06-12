@@ -7,7 +7,7 @@ import {Product} from "../models/Product.model";
   providedIn: 'root'
 })
 export class ProductService {
-  private url = 'localhost:8080/products';
+  private url = 'http://localhost:8080/products';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Array<Product>> {
